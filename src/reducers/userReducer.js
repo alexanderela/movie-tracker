@@ -1,5 +1,5 @@
 const defaultState = {
-  id: 0,
+  id: null,
   name: null,
   email: null,
 }

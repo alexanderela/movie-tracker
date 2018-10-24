@@ -1,4 +1,4 @@
-export const successfulLogin(user) => {
+export const successfulLogin = (user) => {
   const newUser = {...user};
   delete newUser.password
   return {
