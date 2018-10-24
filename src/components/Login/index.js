@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import * as API from '../Utilities/API';
+import * as API from '../../utilities/API';
 
 class Login extends Component {
   constructor() {
@@ -17,9 +17,15 @@ class Login extends Component {
    this.setState({ [name] : value});
   }
 
-  submitLogin = (event) => {
+  submitLogin = async (event) => {
     event.preventDefault();
-    API.loginUser(this.state);
+    const loginAttempt = await API.loginUser(this.state);
+    if (typeof loginAttempt === 'object') {
+      // put into redux here
+    } else {
+      // tell user the login failed
+    }
+    this.setState({email: '', password: ''});
   }
 
   render() {
