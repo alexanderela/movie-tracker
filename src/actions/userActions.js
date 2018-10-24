@@ -6,3 +6,7 @@ export const successfulLogin = (user) => {
     user: newUser
   }
 }
+
+export const signOut = () => ({
+  type: 'SIGN_OUT'
+})
