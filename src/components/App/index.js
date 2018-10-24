@@ -24,9 +24,8 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Login/>
-        <Route exact path='/' render={(props) => <CardContainer {...props} movies={movies} />}
-        />
+        <Route exact path='/login' component={Login}/>
+        <Route exact path='/' render={(props) => <CardContainer {...props} movies={movies} />}/>
       </div>
     );
   }
