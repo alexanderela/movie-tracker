@@ -11,11 +11,10 @@ export const fetchMovies = async () => {
 
 export const returnMovieData = async (movies) => {
 	const moviePromises = movies.map( async movie => {
-		// const moviePoster = await fetchMoviePoster(movie)
 
 		return {
 			title: movie.title,
-			poster: `https://api.themoviedb.org${movie.poster_path}`,
+			poster: await fetchMoviePoster(movie),
 			overview: movie.overview,
 			releaseDate: formatReleaseDate(movie.release_date),
 			rating: movie.vote_average
@@ -25,9 +24,10 @@ export const returnMovieData = async (movies) => {
 }
 
 export const fetchMoviePoster = async (movie) => {
-	const posterUrl = `https://api.themoviedb.org${movie.poster_path}`
+	const apiKey = '26d5b93e45b773596adda2d2b99efa0f'
+	const posterUrl = `https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=${apiKey}&language=en-US`
 	const fetchedPoster = await API.fetchImage(posterUrl)
-	return fetchedPoster
+	return fetchedPoster.posters
 }
 
 const formatReleaseDate = (date) => {
