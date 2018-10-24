@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Navlink } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { Route, Navlink, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as DataCleaner from '../../utilities/DataCleaner'
 import * as API from '../../utilities/API';
 import './App.css';
-import CardContainer from '../CardContainer'
+import MainPage from '../MainPage'
 import Login from '../Login';
 
 class App extends Component {
@@ -21,14 +23,22 @@ class App extends Component {
 
   render() {
     const { movies } = this.state
-
+    const { user } = this.props;
     return (
       <div className='App'>
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/' render={(props) => <CardContainer {...props} movies={movies} />}/>
+        <Route exact path='/' render={(props) => <MainPage movies={movies} />}/>
+        <Route exact path='/login' render={() => user.loggedIn ?
+            <Redirect to='/'/> : <Login/>}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

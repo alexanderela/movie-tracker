@@ -23,20 +23,19 @@ class Login extends Component {
   }
 
   submitLogin = async (event) => {
+    event.preventDefault();
     const { email, password } = this.state;
     const loginAttempt = await API.loginUser({email, password});
-    event.preventDefault();
     if (loginAttempt) {
       this.props.loginUser(loginAttempt);
-      this.setState({email: '', password: '', error: false});
     } else {
       this.setState({error: true});
     }
   }
 
   toggleCreate = (event) => {
-    const { create, email, password, name } = this.state;
     event.preventDefault();
+    const { create, email, password, name } = this.state;
     if (this.state.create) {
       API.createUser({email, password, name});
     }
