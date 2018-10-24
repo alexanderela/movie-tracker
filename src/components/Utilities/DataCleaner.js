@@ -14,7 +14,7 @@ export const returnMovieData = async (movies) => {
 
 		return {
 			title: movie.title,
-			poster: await fetchMoviePoster(movie),
+			poster: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
 			overview: movie.overview,
 			releaseDate: formatReleaseDate(movie.release_date),
 			rating: movie.vote_average
@@ -23,16 +23,14 @@ export const returnMovieData = async (movies) => {
 	return Promise.all(moviePromises)
 }
 
-export const fetchMoviePoster = async (movie) => {
-	const apiKey = '26d5b93e45b773596adda2d2b99efa0f'
-	const posterUrl = `https://api.themoviedb.org/3/movie/${movie.id}/images?api_key=${apiKey}&language=en-US`
-	const fetchedPoster = await API.fetchImage(posterUrl)
-	return fetchedPoster.posters
-}
-
 const formatReleaseDate = (date) => {
 	const month = date.slice(5,7)
 	const day = date.slice(8,10)
 	const year = date.slice(0,4)
 	return `${month}/${day}/${year}`
 }
+
+
+// `https://api.themoviedb.org/3/movie/332562/images?api_key=26d5b93e45b773596adda2d2b99efa0f&language=en-US`
+
+// https://image.tmdb.org/t/p/w500/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg
