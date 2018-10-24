@@ -7,3 +7,19 @@ export const fetchData = async (url) => {
 			return cleanResponse
 	}
 }
+
+export const loginUser = async (user) => {
+  try {
+    const response = await fetch('http://localhost:3000/api/users', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers:{
+          'Content-Type': 'application/json'
+        }
+    })
+    const userData = await response.json();
+    return userData;
+  } catch(error) {
+    console.log(error.message)
+  }
+}
