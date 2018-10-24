@@ -1,0 +1,12 @@
+.Card {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 20rem;
+}
+
+.poster-image {
+	width: 15rem;
+}
