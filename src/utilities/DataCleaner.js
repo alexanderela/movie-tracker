@@ -7,7 +7,7 @@ export const fetchMovies = async () => {
 	const movieData = await API.fetchData(url)
 	const currentMovies = await returnMovieData(movieData.results)
 	return currentMovies
-} 
+}
 
 export const returnMovieData = async (movies) => {
 	const moviePromises = movies.map( async movie => {
