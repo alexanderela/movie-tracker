@@ -18,10 +18,19 @@ export const loginUser = async (user) => {
       }
     })
     const userData = await response.json();
-    return userData;
+    return userData.data;
   }
-
   catch(error) {
     console.log(error.message);
   }
+}
+
+export const createUser = (user) => {
+  fetch('http://localhost:3000/api/users/new', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  });
 }
