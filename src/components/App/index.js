@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Route, Navlink } from 'react-router-dom';
-import * as DataCleaner from '../Utilities/DataCleaner'
-import * as API from '../Utilities/API';
+import * as DataCleaner from '../../Utilities/DataCleaner'
+import * as API from '../../Utilities/API';
+import './App.css';
 import CardContainer from '../CardContainer'
 import Login from '../Login';
 

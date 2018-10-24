@@ -11,16 +11,17 @@ export const fetchData = async (url) => {
 export const loginUser = async (user) => {
   try {
     const response = await fetch('http://localhost:3000/api/users', {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers:{
-          'Content-Type': 'application/json'
-        }
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers:{
+        'Content-Type': 'application/json'
+      }
     })
     const userData = await response.json();
-    console.log(userData);
     return userData;
-  } catch(error) {
-    console.log(error)
+  }
+
+  catch(error) {
+    console.log(error.message);
   }
 }
