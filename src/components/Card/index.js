@@ -19,7 +19,7 @@ const Card = ({ movie, changeFavorite, movies }) => (
 			<p>Opens: {movie.releaseDate}</p>
 			<p>Viewer Rating: {movie.rating}</p>
 		</div>
-	</div>
+  </div>
 )
 
 export const mapStateToProps = (state) => ({

@@ -9,7 +9,7 @@ import MainPage from '../MainPage';
 import Login from '../Login';
 import * as userActions from '../../actions/userActions';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state = {
