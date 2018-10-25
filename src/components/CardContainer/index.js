@@ -5,10 +5,10 @@ import { toggleFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 
 
-const CardContainer = ({ movies, changeFavorite }) => {
+const CardContainer = ({ movies }) => {
 	console.log('movies: ', movies)
 	const movieCards = movies.map(movie => {
-		return <Card movie={movie} key={movie.title} onFavoritesClick={() => changeFavorite(movie.id)} />
+		return <Card movie={movie} key={movie.title}  />
 	})
 
 	return(
@@ -23,7 +23,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-	changeFavorite: (id) => dispatch(toggleFavorite(id))
+	// changeFavorite: (id) => dispatch(toggleFavorite(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);

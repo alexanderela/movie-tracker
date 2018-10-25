@@ -11,9 +11,10 @@ export const signOut = () => ({
   type: 'SIGN_OUT'
 })
 
-export const toggleFavorite = (id) => ({
+export const toggleFavorite = (id, movies) => ({
   type: 'TOGGLE_FAVORITE',
   id,
+  movies,
 })
 
 export const setMovies = (movies) => ({
