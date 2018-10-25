@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import * as DataCleaner from '../../utilities/DataCleaner'
 import * as API from '../../utilities/API';
 import './App.css';
-import MainPage from '../MainPage'
+import MainPage from '../MainPage';
 import Login from '../Login';
+import * as userActions from '../../actions/userActions';
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
 
   async componentDidMount() {
     const movies = await DataCleaner.fetchMovies()
-    this.setState({ movies })
+    userActions.setMovies(movies)
   }
 
   render() {
@@ -38,7 +39,9 @@ const mapStateToProps = (state) => ({
   user: state.user
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  setMovies: (movies) => dispatch(userActions.setMovies(movies))
+});
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
