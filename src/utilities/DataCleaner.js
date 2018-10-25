@@ -15,6 +15,7 @@ export const returnMovieData = async (movies) => {
 		return {
 			title: movie.title,
 			poster: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+			backdrop: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
 			overview: movie.overview,
 			releaseDate: formatReleaseDate(movie.release_date),
 			rating: movie.vote_average
