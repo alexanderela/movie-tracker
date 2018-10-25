@@ -4,9 +4,9 @@ import * as userActions from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+export class Login extends Component {
+  constructor() {
+    super();
     this.state = {
       email: '',
       password: '',
