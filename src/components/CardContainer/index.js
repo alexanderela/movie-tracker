@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 
 const CardContainer = ({ movies, changeFavorite }) => {
+	console.log('movies: ', movies)
 	const movieCards = movies.map(movie => {
 		return <Card movie={movie} key={movie.title} onFavoritesClick={() => changeFavorite(movie.id)} />
 	})
@@ -18,7 +19,7 @@ const CardContainer = ({ movies, changeFavorite }) => {
 }
 
 export const mapStateToProps = (state) => ({
-
+	movies: state.movies
 })
 
 export const mapDispatchToProps = (dispatch) => ({

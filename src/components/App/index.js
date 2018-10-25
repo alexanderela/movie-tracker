@@ -19,7 +19,7 @@ class App extends Component {
 
   async componentDidMount() {
     const movies = await DataCleaner.fetchMovies()
-    userActions.setMovies(movies)
+    this.props.setMovies(movies)
   }
 
   render() {
@@ -27,7 +27,7 @@ class App extends Component {
     const { user } = this.props;
     return (
       <div className='App'>
-        <Route exact path='/' render={(props) => <MainPage movies={movies} />}/>
+        <Route exact path='/' render={(props) => <MainPage />}/>
         <Route exact path='/login' render={() => user.loggedIn ?
             <Redirect to='/'/> : <Login/>}/>
       </div>
@@ -36,7 +36,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  favorites: state.favoritesReducer,
+  movies: state.moviesReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
