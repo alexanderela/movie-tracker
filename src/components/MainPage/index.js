@@ -7,6 +7,7 @@ import * as userActions from '../../actions/userActions';
 const MainPage = (props) => {
   const handleSignOut = (event) => {
     event.preventDefault();
+    props.signOut()
     // This shits broke props.signOut();
   }
   return (
@@ -19,7 +20,7 @@ const MainPage = (props) => {
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(userActions.signOut)
+  signOut: () => dispatch(userActions.signOut())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

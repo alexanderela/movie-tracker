@@ -5,13 +5,13 @@ import './Login.css';
 import * as API from '../../utilities/API';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
       name: '',
-      error: false,
+      error: '',
       create: false
     }
   }
@@ -29,15 +29,17 @@ class Login extends Component {
     if (loginAttempt) {
       this.props.loginUser(loginAttempt);
     } else {
-      this.setState({error: true});
+      this.setState({error: 'Email and Password did not match'});
     }
   }
 
-  toggleCreate = (event) => {
+  toggleCreate = async (event) => {
     event.preventDefault();
     const { create, email, password, name } = this.state;
     if (this.state.create) {
-      API.createUser({email, password, name});
+      const message = await API.createUser({email, password, name});
+      console.log(message);
+      this.setState({error: 'Cannot create user'})
     }
     this.setState({ create: true});
   }
@@ -73,7 +75,7 @@ class Login extends Component {
         <button type='submit' onClick={this.submitLogin}>Login</button>
             : null }
         <button className='create-user' onClick={this.toggleCreate}>Create User</button>
-        { error ? <div className="error">Error</div> : null }
+        { error.length ? <div className="error">{error}</div> : null }
       </form>
       </div>
     )

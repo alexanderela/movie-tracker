@@ -29,8 +29,3 @@ const formatReleaseDate = (date) => {
 	const year = date.slice(0,4)
 	return `${month}/${day}/${year}`
 }
-
-
-// `https://api.themoviedb.org/3/movie/332562/images?api_key=26d5b93e45b773596adda2d2b99efa0f&language=en-US`
-
-// https://image.tmdb.org/t/p/w500/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg

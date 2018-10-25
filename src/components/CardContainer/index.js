@@ -4,7 +4,7 @@ import Card from '../Card';
 
 const CardContainer = ({ movies }) => {
 	const movieCards = movies.map(movie => {
-		return <Card movie={movie}/>
+		return <Card movie={movie} key={movie.title}/>
 	})
 
 	return(
