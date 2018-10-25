@@ -30,3 +30,33 @@ export const createUser = async (user) => {
     console.log(error.message)
   }
 }
+
+export const addFavorite = async (movie, userId) => {
+  try {
+    return fetch('http://localhost:3000/api/users/favorites/new', {
+      method: 'POST',
+      body: JSON.stringify(movie, userId),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+  catch(error) {
+    console.log(error.message)
+  }
+}
+
+export const removeFavorite = async (movieId, userId) => {
+  try {
+    return fetch('http://localhost:3000/api/users/favorites/new', {
+      method: 'POST',
+      body: JSON.stringify(movieId, userId),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+  catch (error) {
+    console.log(error.message)
+  }
+}

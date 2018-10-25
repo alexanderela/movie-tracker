@@ -7,12 +7,11 @@ export const MainPage = (props) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     props.signOut()
-    // This shits broke props.signOut();
   }
   return (
     <div className='MainPage'>
       <button className='sign-out' onClick={handleSignOut}>Sign Out</button>
-      <CardContainer movies={props.movies}/>
+      <CardContainer  />
     </div>
   )
 }

@@ -18,7 +18,9 @@ export const returnMovieData = async (movies) => {
 			backdrop: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
 			overview: movie.overview,
 			releaseDate: formatReleaseDate(movie.release_date),
-			rating: movie.vote_average
+			rating: movie.vote_average,
+			isFavorite: false,
+			id: movie.title,
 		}
 	})
 	return Promise.all(moviePromises)

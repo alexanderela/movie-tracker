@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import * as DataCleaner from '../../utilities/DataCleaner'
 import * as API from '../../utilities/API';
 import './App.css';
-import MainPage from '../MainPage'
+import MainPage from '../MainPage';
 import Login from '../Login';
+import * as userActions from '../../actions/userActions';
 
 export class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ export class App extends Component {
 
   async componentDidMount() {
     const movies = await DataCleaner.fetchMovies()
-    this.setState({ movies })
+    this.props.setMovies(movies)
   }
 
   render() {
@@ -26,7 +27,7 @@ export class App extends Component {
     const { user } = this.props;
     return (
       <div className='App'>
-        <Route exact path='/' render={(props) => <MainPage movies={movies} />}/>
+        <Route exact path='/' render={(props) => <MainPage />}/>
         <Route exact path='/login' render={() => user.loggedIn ?
             <Redirect to='/'/> : <Login/>}/>
       </div>
@@ -35,10 +36,14 @@ export class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  favorites: state.favoritesReducer,
+  movies: state.moviesReducer,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  setMovies: (movies) => dispatch(userActions.setMovies(movies))
+});
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
