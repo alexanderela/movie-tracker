@@ -5,8 +5,8 @@ import './Login.css';
 import * as API from '../../utilities/API';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       password: '',
@@ -73,7 +73,7 @@ class Login extends Component {
         <button type='submit' onClick={this.submitLogin}>Login</button>
             : null }
         <button className='create-user' onClick={this.toggleCreate}>Create User</button>
-        { error ? <div className="error">Error</div> : null }
+        { error ? <div className="error">Email and password don't match</div> : null }
       </form>
       </div>
     )
