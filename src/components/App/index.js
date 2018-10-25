@@ -8,7 +8,7 @@ import './App.css';
 import MainPage from '../MainPage'
 import Login from '../Login';
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state = {

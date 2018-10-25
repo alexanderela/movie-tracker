@@ -12,7 +12,7 @@ const Card = ({ movie }) => (
 			<p>Opens: {movie.releaseDate}</p>
 			<p>Viewer Rating: {movie.rating}</p>
 		</div>
-	</div>
+  </div>
 )
 
 export default Card
