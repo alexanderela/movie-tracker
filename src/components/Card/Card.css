@@ -17,7 +17,6 @@
 
 .Card:hover {
 	box-shadow: 0 12px 1rem rgba(0, 0, 0, .5);
-	width: 94%;
 }
 
 .card-inner-wrapper {
