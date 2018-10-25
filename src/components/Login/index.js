@@ -45,7 +45,10 @@ class Login extends Component {
   render() {
     const { email, password, create, error, name } = this.state;
     return (
-      <form className='Login'>
+      <div className='Login'>
+      <form className='Login-form'>
+        <h1> Movie Tracker </h1>
+        <h3> Login </h3>
         { create ?
             <input
               name='name'
@@ -72,6 +75,7 @@ class Login extends Component {
         <button className='create-user' onClick={this.toggleCreate}>Create User</button>
         { error ? <div className="error">Error</div> : null }
       </form>
+      </div>
     )
   }
 }

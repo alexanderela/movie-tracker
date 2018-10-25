@@ -1,0 +1,41 @@
+.Login {
+  background-image: url('../../assets/movies.jpg');
+  padding-top: 30vh;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+}
+
+.Login::after {
+  content: '';
+  background-color: #000;
+  opacity: 0.86;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.Login-form {
+  position: relative;
+  margin: auto;
+  width: 20%;
+  height: 200px;
+  background-color: #FFF;
+  z-index: 9;
+}
+
+.Login input {
+  display: block;
+  margin: auto;
+  width: 30%;
+}
+
+.Login button {
+  display: block;
+  margin: auto;
+  width: 30%;
+}
