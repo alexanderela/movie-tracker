@@ -24,7 +24,7 @@ export const returnMovieData = async (movies) => {
 	return Promise.all(moviePromises)
 }
 
-const formatReleaseDate = (date) => {
+export const formatReleaseDate = (date) => {
 	const month = date.slice(5,7)
 	const day = date.slice(8,10)
 	const year = date.slice(0,4)
