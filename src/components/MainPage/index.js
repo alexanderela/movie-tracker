@@ -3,8 +3,7 @@ import CardContainer from '../CardContainer';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 
-
-const MainPage = (props) => {
+export const MainPage = (props) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     props.signOut()
