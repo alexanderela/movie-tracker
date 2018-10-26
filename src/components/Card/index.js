@@ -2,32 +2,51 @@ import React from 'react';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
-import { toggleFavorite } from '../../actions/userActions';
+import { toggleFavorite, addFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
+import * as API from '../../utilities/API'
 
-const Card = ({ movie, changeFavorite, movies }) => (
-	<div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
-		<div className="card-inner-wrapper">
-			<h3 className="movie-title" >{movie.title}</h3>
-			<button className="card-favorite-button" onClick={() => changeFavorite(movie.id, movies)} >
-				<img alt="" src={star} />
-			</button>
-			{/* <img  */}
-				{/* src={movie.poster}  */}
-				{/* className='poster-image'/> */}
-			<p>{movie.overview}</p>
-			<p>Opens: {movie.releaseDate}</p>
-			<p>Viewer Rating: {movie.rating}</p>
-		</div>
-  </div>
-)
+const Card = ({ movie, user, changeFavorite }) => {
+	const handleFavorite = (movie) => {
+		console.log('movie: ' + movie.id + ', isFavorite: ' + movie.isFavorite)
+		const { id, isFavorite } = movie
+	 	changeFavorite(id)
+	 	if(isFavorite) {
+	 		API.removeFavorite(id, user)
+	 	} else {
+			// debugger
+	 		API.addFavorite(movie, user)
+	 	}
+	}
+
+	return(
+		<div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
+			<div className="card-inner-wrapper">
+				<h3 className="movie-title" >{movie.title}</h3>
+				<button 
+					className="card-favorite-button" 
+					onClick={() => handleFavorite(movie)} 
+				>
+					<img alt="" src={star} />
+				</button>
+				{/* <img  */}
+					{/* src={movie.poster}  */}
+					{/* className='poster-image'/> */}
+				<p>{movie.overview}</p>
+				<p>Opens: {movie.releaseDate}</p>
+				<p>Viewer Rating: {movie.rating}</p>
+			</div>
+	  </div>
+  )
+}
 
 export const mapStateToProps = (state) => ({
-	movies: state.movies
+	user: state.user
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-	changeFavorite: (id, movies) => dispatch(toggleFavorite(id, movies))
+	changeFavorite: (id) => dispatch(toggleFavorite(id)),
+	addToFavorites: (movie, userId) => dispatch(addFavorite(movie, userId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

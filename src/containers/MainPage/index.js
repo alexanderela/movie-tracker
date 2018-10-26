@@ -10,7 +10,13 @@ export const MainPage = (props) => {
   }
   return (
     <div className='MainPage'>
-      <button className='sign-out' onClick={handleSignOut}>Sign Out</button>
+      <button 
+        className='sign-out' 
+        onClick={handleSignOut}>Sign Out
+      </button>
+      <button
+        className='all-favorites'>Favorites
+      </button>
       <CardContainer  />
     </div>
   )

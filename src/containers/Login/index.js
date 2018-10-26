@@ -38,7 +38,7 @@ export class Login extends Component {
     const { create, email, password, name } = this.state;
     if (create) {
       const message = await API.createUser({email, password, name});
-      this.setState({error: 'Cannot create user'})
+      this.setState({error: 'Email has already been used'})
     }
     this.setState({ create: true});
   }
@@ -70,10 +70,16 @@ export class Login extends Component {
           type='text'
           placeholder='Password'
           onChange={this.handleChange}/>
-        { !create ?
-        <button type='submit' onClick={this.submitLogin}>Login</button>
+        { !create 
+            ? <button 
+                type='submit' 
+                onClick={this.submitLogin}>Login
+              </button>
             : null }
-        <button className='create-user' onClick={this.toggleCreate}>Create User</button>
+        <button 
+          className='create-user' 
+          onClick={this.toggleCreate}>Create User
+        </button>
         { error.length ? <div className="error">{error}</div> : null }
       </form>
       </div>
