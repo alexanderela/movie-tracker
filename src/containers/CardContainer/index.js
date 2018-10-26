@@ -1,6 +1,6 @@
 import React from 'react';
 import './CardContainer.css'
-import Card from '../Card';
+import Card from '../../components/Card';
 import { toggleFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 
