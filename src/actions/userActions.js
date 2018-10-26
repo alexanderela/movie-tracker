@@ -1,9 +1,10 @@
-export const successfulLogin = (user) => {
+export const successfulLogin = (user, favorites) => {
   const newUser = {...user};
   delete newUser.password
   return {
     type: 'SUCCESSFUL_LOGIN',
-    user: newUser
+    user: newUser,
+    favorites: favorites
   }
 }
 
@@ -21,7 +22,18 @@ export const addFavorite = (id) => ({
 	id
 })
 
+export const removeFavorite = (userId, movieId) => ({
+  type: 'REMOVE_FAVORITE',
+  userId,
+  movieId
+})
+
+export const getFavorites = (id) => {
+  type: 'GET_FAVORITES',
+  id
+}
+
 export const setMovies = (movies) => ({
   type: 'SET_MOVIES',
-  movies,
+  movies
 })

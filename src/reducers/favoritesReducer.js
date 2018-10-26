@@ -2,6 +2,9 @@ export const defaultState = []
 
 export const favoritesReducer = (state = defaultState, action) => {
   switch(action.type) {
+    case 'ADD_FAVORITE':
+
+    case 'REMOVE_FAVORITE':
     // case 'TOGGLE_FAVORITE':
     //   const allMovies = action.movies.map(movie => {
     //   	if(movie.id === action.id) {
