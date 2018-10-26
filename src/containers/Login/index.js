@@ -36,9 +36,8 @@ export class Login extends Component {
   toggleCreate = async (event) => {
     event.preventDefault();
     const { create, email, password, name } = this.state;
-    if (this.state.create) {
+    if (create) {
       const message = await API.createUser({email, password, name});
-      console.log(message);
       this.setState({error: 'Cannot create user'})
     }
     this.setState({ create: true});
@@ -81,10 +80,10 @@ export class Login extends Component {
     )
   }
 }
+
 const mapStateToProps = (state) => ({user: state.user});
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(userActions.successfulLogin(user))
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
