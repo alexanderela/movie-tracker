@@ -1,7 +1,6 @@
 import React from 'react';
 import './CardContainer.css'
 import Card from '../../components/Card';
-import { toggleFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 
 
@@ -17,12 +16,8 @@ const CardContainer = ({ movies }) => {
 	)
 }
 
-export const mapStateToProps = (state) => ({
-	movies: state.movies
-})
+export const mapStateToProps = ({ movies }) => ({ movies });
 
-export const mapDispatchToProps = (dispatch) => ({
-	// changeFavorite: (id) => dispatch(toggleFavorite(id))
-})
+export const mapDispatchToProps = (dispatch) => ({ });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);

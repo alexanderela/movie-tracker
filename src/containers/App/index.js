@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { Route, Navlink, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as userActions from '../../actions/userActions';
 import * as DataCleaner from '../../utilities/DataCleaner'
-import * as API from '../../utilities/API';
-import './App.css';
 import MainPage from '../MainPage';
 import Login from '../Login';
-import * as userActions from '../../actions/userActions';
+import './App.css';
 
 export class App extends Component {
   async componentDidMount() {
@@ -27,9 +26,9 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({ user });
+export const mapStateToProps = ({ user }) => ({ user });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(userActions.setMovies(movies))
 });
 
