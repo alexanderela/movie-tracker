@@ -10,36 +10,24 @@ import Login from '../Login';
 import * as userActions from '../../actions/userActions';
 
 export class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      movies: []
-    }
-  }
-
   async componentDidMount() {
     const movies = await DataCleaner.fetchMovies()
     this.props.setMovies(movies)
   }
 
   render() {
-    const { movies } = this.state
-    const { user } = this.props;
+    const { loggedIn } = this.props.user;
     return (
       <div className='App'>
         <Route exact path='/' render={(props) => <MainPage />}/>
-        <Route exact path='/login' render={() => user.loggedIn ?
+        <Route exact path='/login' render={() => loggedIn ?
             <Redirect to='/'/> : <Login/>}/>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-  favorites: state.favoritesReducer,
-  movies: state.moviesReducer,
-});
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(userActions.setMovies(movies))
