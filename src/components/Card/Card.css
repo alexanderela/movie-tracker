@@ -52,7 +52,7 @@
 	padding: .5rem 0;
 	margin: 0;
 	overflow: hidden;
-	width: 101%;
+	width: calc(100% + 1px);
 }
 
 .Card p {
@@ -71,6 +71,7 @@
 
 	.movie-title {
 		font-size: 1.5rem;
+		width: 100%;
 	}
 }
 
