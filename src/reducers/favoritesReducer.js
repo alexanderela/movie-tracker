@@ -17,3 +17,13 @@ export const favoritesReducer = (state = defaultState, action) => {
       return state;
   }
 }
+
+// {
+//   "movie_id": "movie.id",
+//   "user_id": "user.id",
+//   "title": "movie.title",
+//   "poster_path": "movie.poster",
+//   "release_date": "movie.releaseDate"     
+//   "vote_average": "movie.rating",
+//   "overview": "movie.overview"
+// }
