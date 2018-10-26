@@ -6,15 +6,16 @@ import { toggleFavorite, addFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
-
 const Card = ({ movie, user, changeFavorite }) => {
 	const handleFavorite = (movie) => {
+		console.log('movie: ' + movie.id + ', isFavorite: ' + movie.isFavorite)
 		const { id, isFavorite } = movie
 	 	changeFavorite(id)
 	 	if(isFavorite) {
-	 		API.removeFavorite(id, user.id)
+	 		API.removeFavorite(id, user)
 	 	} else {
-	 		API.addFavorite(movie, user.id)
+			// debugger
+	 		API.addFavorite(movie, user)
 	 	}
 	}
 
