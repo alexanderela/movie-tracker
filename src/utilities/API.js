@@ -32,45 +32,26 @@ export const createUser = async (user) => {
 }
 
 export const addFavorite = async (movie, user) => {
-    console.log(user)
-  try {
-    return fetch('http://localhost:3000/api/users/favorites/new', {
-      method: 'POST',
-      body: JSON.stringify({
-        movie_id: movie.id,
-        user_id: user.id,
-        title: movie.title,
-        poster_path: movie.poster,
-        release_date: movie.releaseDate,
-        vote_average: movie.rating,
-        overview: movie.overview
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-  catch(error) {
-  // debugger
-    console.log(error.message)
-  }
+  const response = await fetch('http://localhost:3000/api/users/favorites/new', {
+    method: 'POST',
+    body: JSON.stringify({
+      movie_id: movie.id,
+      user_id: user.id,
+      title: movie.title,
+      poster_path: movie.poster,
+      release_date: movie.releaseDate,
+      vote_average: movie.rating,
+      overview: movie.overview
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  return response.json();
 }
 
 export const removeFavorite = async (movie, user) => {
-  try {
-    console.log(user)
-    return fetch(`http://localhost:3000/api/${user.id}/favorites/${movie.id}`, {
-      method: 'DELETE',
-      body: JSON.stringify({
-        movie_id: movie.id,
-        user_id: user.id,
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-  catch (error) {
-    console.log(error.message)
-  }
+  return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
+    method: 'DELETE'
+  });
 }

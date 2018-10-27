@@ -16,9 +16,9 @@ export const signIn = () => ({
   type: 'SIGN_IN'
 })
 
-export const toggleFavorite = (id) => ({
-  type: 'TOGGLE_FAVORITE',
-  id
+export const toggleFavorite = (movieId) => ({
+    type: 'TOGGLE_FAVORITE',
+    movieId
 })
 
 export const addFavorite = (movie) => ({
