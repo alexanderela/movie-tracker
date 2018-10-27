@@ -8,6 +8,13 @@ import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
 export class Card extends Component {
+	constructor() {
+		super();
+		this.state = {
+			expanded: false
+		}
+	}
+
 	handleFavorite = async (movie) => {
     console.log(movie);
     const { user } = this.props;
@@ -18,13 +25,23 @@ export class Card extends Component {
       API.addFavorite(movie, user);
     }
     this.props.toggleFavorite(id);
-	}
+  }
+  
+  handleExpand = () => {
+    console.log('goteeeeem')
+    this.setState({
+      expanded: !this.state.expanded
+    })
+  }
 
   render() {
     const { movie, toggleFavorite } = this.props;
 
     return(
-      <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
+			<div
+				className='Card'
+				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
+        onClick={this.handleExpand}>
         <div className="card-inner-wrapper">
           <h3 className="movie-title" >
             <div className="movie-rating" >Rating {movie.rating}/10</div>
