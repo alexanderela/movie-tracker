@@ -1,37 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CardContainer from '../CardContainer';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
+import * as DataCleaner from '../../utilities/DataCleaner'
 import redLogo from '../../images/film-red.svg'
 
-export const MainPage = (props) => {
-  const handleSignOut = (event) => {
-    event.preventDefault();
-    props.signOut()
+export class MainPage extends Component {
+  async componentDidMount() {
+    const movies = await DataCleaner.fetchMovies()
+    this.props.setMovies(movies)
   }
-  return (
-    <div className='MainPage'>
-      <div className="main-header" >
-        <button
-          className='all-favorites'>Favorites
-        </button>
-        <div className="header-title">
-          <img className="main-logo" alt="" src={redLogo} />
-          <h3 className="header-text">MovieTracker</h3>
+
+  handleSignOut = (event) => {
+    event.preventDefault();
+    this.props.signOut()
+  }
+
+  render() {
+    return (
+      <div className='MainPage'>
+        <div className="main-header" >
+          <button
+            className='all-favorites'>Favorites
+          </button>
+          <div className="header-title">
+            <img className="main-logo" alt="" src={redLogo} />
+            <h3 className="header-text">MovieTracker</h3>
+          </div>
+          <button
+            className='sign-out'
+            onClick={this.handleSignOut}>Sign Out
+          </button>
         </div>
-        <button 
-          className='sign-out' 
-          onClick={handleSignOut}>Sign Out
-        </button>
+        <div className="header-container-splitter"></div>
+        <CardContainer  />
       </div>
-      <div className="header-container-splitter"></div>
-      <CardContainer  />
-    </div>
-  )
+    )
+  }
 }
 
-const mapStateToProps = (state) => ({});
-const mapDispatchToProps = (dispatch) => ({
+export const mapStateToProps = ({user}) => ({user});
+export const mapDispatchToProps = (dispatch) => ({
+  setMovies: (movies) => dispatch(userActions.setMovies(movies)),
   signOut: () => dispatch(userActions.signOut())
 });
 
