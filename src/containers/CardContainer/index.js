@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 
 const CardContainer = ({ movies }) => {
+	console.log(movies)
 	const movieCards = movies.map(movie => {
 		return <Card movie={movie} key={movie.title}  />
 	})
@@ -19,7 +20,7 @@ const CardContainer = ({ movies }) => {
 	
 }
 
-export const mapStateToProps = ({ movies }) => ({ movies });
+export const mapStateToProps = ({}) => ({});
 
 export const mapDispatchToProps = (dispatch) => ({ });
 

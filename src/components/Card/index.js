@@ -9,7 +9,6 @@ import * as API from '../../utilities/API'
 
 export class Card extends Component {
 	handleFavorite = async (movie) => {
-    console.log(movie);
     const { user } = this.props;
 		const { id, favorite } = movie;
     if (favorite) {
@@ -20,7 +19,6 @@ export class Card extends Component {
     this.props.toggleFavorite(id);
 	}
 
-<<<<<<< HEAD
   render() {
     const { movie, toggleFavorite } = this.props;
 

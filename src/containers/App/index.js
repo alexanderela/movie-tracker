@@ -16,15 +16,18 @@ export class App extends Component {
 
   render() {
     const { loggedIn } = this.props.user;
+    const { movies, favorites } = this.props
     return (
       <div className='App'>
-        <Route exact path='/' render={(props) => <MainPage />}/>
+        <Route exact path='/' render={() => <MainPage movies={movies}/>}/>
         <Route exact path='/login' render={() => loggedIn ?
           <Redirect to='/'/> : <Login/>}/>
         <Route exact path='/favorites' render={() => {
           if(!loggedIn) {
             alert('Please create an account or login to select favorites')
-            return <Login /> }
+            return <Login /> 
+          } else {
+            return <MainPage movies={favorites}/>}
           }
         }/>
       </div>
@@ -32,7 +35,7 @@ export class App extends Component {
   }
 }
 
-export const mapStateToProps = ({ user }) => ({ user });
+export const mapStateToProps = ({ user, movies, favorites }) => ({ user, movies, favorites });
 
 export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(userActions.setMovies(movies))
