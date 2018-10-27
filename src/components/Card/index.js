@@ -6,17 +6,15 @@ import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/userA
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
-const Card = ({ movie, user, favorites, changeFavorite, addToFavorites, removeFromFavorites }) => {
-	const handleFavorite = (movie) => {
-		const { id, isFavorite } = movie
-	 	changeFavorite(id)
-	 	if(isFavorite) {
-			removeFromFavorites(movie)
-	 		API.removeFavorite(movie, user)
-	 	} else {
-	 		addToFavorites(movie)
-			API.addFavorite(movie, user)
-	 	}
+const Card = ({ movie, user, favorites, toggleFavorite, addToFavorites, removeFromFavorites }) => {
+	const handleFavorite = async (movie) => {
+		const { id, favorite } = movie;
+    if (favorite) {
+      API.removeFavorite(movie, user);
+    } else {
+      API.addFavorite(movie, user);
+    }
+    toggleFavorite(id);
 	}
 
 	return(
@@ -25,12 +23,12 @@ const Card = ({ movie, user, favorites, changeFavorite, addToFavorites, removeFr
 				<h3 className="movie-title" >
 					<div className="movie-rating" >Rating {movie.rating}/10</div>
 					{movie.title}
-					<button 
+					<button
 						className={`card-favorite-button
-							${movie.isFavorite || favorites.includes(movie)
+							${movie.favorite
 								? 'fav-btn-active'
-								: 'fav-btn-inactive'}`} 
-						onClick={() => handleFavorite(movie)} 
+								: 'fav-btn-inactive'}`}
+						onClick={() => handleFavorite(movie)}
 					>
 						<img alt="" src={star} />
 					</button>
@@ -52,7 +50,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-	changeFavorite: (id) => dispatch(toggleFavorite(id)),
+	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
 	addToFavorites: (movie) => dispatch(addFavorite(movie)),
 	removeFromFavorites: (movie) => dispatch(removeFavorite(movie))
 })

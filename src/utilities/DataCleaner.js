@@ -19,7 +19,7 @@ export const returnMovieData = async (movies) => {
 			overview: movie.overview,
 			releaseDate: formatReleaseDate(movie.release_date),
 			rating: movie.vote_average,
-			isFavorite: false,
+			favorite: null,
 			id: movie.id,
 		}
 	})
