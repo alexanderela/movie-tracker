@@ -43,6 +43,7 @@ ShallowWrapper {
           value=""
         />
         <button
+          className="login-button"
           onClick={[Function]}
           type="submit"
         >
@@ -86,6 +87,7 @@ ShallowWrapper {
             value=""
           />,
           <button
+            className="login-button"
             onClick={[Function]}
             type="submit"
           >
@@ -162,6 +164,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Login",
+            "className": "login-button",
             "onClick": [Function],
             "type": "submit",
           },
@@ -218,6 +221,7 @@ ShallowWrapper {
             value=""
           />
           <button
+            className="login-button"
             onClick={[Function]}
             type="submit"
           >
@@ -261,6 +265,7 @@ ShallowWrapper {
               value=""
             />,
             <button
+              className="login-button"
               onClick={[Function]}
               type="submit"
             >
@@ -337,6 +342,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Login",
+              "className": "login-button",
               "onClick": [Function],
               "type": "submit",
             },
