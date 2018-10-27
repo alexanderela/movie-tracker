@@ -1,32 +1,18 @@
-export const defaultState = []
+const defaultState = []
 
 export const favoritesReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'ADD_FAVORITE':
-
+      if(!state.includes(action.id)) {
+      return [...state, action.id]
+     }
     case 'REMOVE_FAVORITE':
-    // case 'TOGGLE_FAVORITE':
-    //   const allMovies = action.movies.map(movie => {
-    //   	if(movie.id === action.id) {
-    //     	return {...movie, isFavorite: !movie.isFavorite}
-    //   	} else {
-    //   		return movie
-    //   	}
-    //   });
-    //   	return allMovies.filter(movie => {
-    //   		return movie.id === action.id
-    //   	})
+      return state.filter(id => {
+        return id !== action.id
+      })
+    case 'GET_FAVORITES':
+      return state
     default: 
       return state;
   }
 }
-
-// {
-//   "movie_id": "movie.id",
-//   "user_id": "user.id",
-//   "title": "movie.title",
-//   "poster_path": "movie.poster",
-//   "release_date": "movie.releaseDate"     
-//   "vote_average": "movie.rating",
-//   "overview": "movie.overview"
-// }
