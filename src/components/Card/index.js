@@ -22,7 +22,7 @@ export class Card extends Component {
 	}
 
   render() {
-    const { movie, toggleFavorite } = this.props;
+    const { movie, toggleFavorite, favorites } = this.props;
 
     return(
       <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
@@ -32,7 +32,7 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite
+                ${movie.favorite || favorites.includes(movie)
                   ? 'fav-btn-active'
                   : 'fav-btn-inactive'}`}
               onClick={() => this.handleFavorite(movie)}
@@ -52,10 +52,7 @@ export class Card extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-	user: state.user,
-	favorites: state.favorites
-})
+export const mapStateToProps = ({ user, favorites }) => ({ user, favorites })
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
