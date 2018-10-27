@@ -11,7 +11,7 @@ export const favoritesReducer = (state = defaultState, action) => {
         return movie.id !== action.movie.id
       })
     case 'GET_FAVORITES':
-      return state
+      return [...state, action.favoriteMovies]
     default: 
       return state;
   }

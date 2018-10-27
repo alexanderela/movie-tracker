@@ -27,12 +27,20 @@ export class Login extends Component {
   submitLogin = async (event) => {
     event.preventDefault();
     const { email, password, favorites } = this.state;
+    const { user, loginUser } = this.props
+
     const loginAttempt = await API.loginUser({email, password}, favorites);
     if (loginAttempt) {
-      this.props.loginUser(loginAttempt);
+      loginUser(loginAttempt);
+      this.getFavoritesFromDatabase(user)
     } else {
       this.setState({error: 'Email and Password did not match'});
     }
+  }
+
+  getFavoritesFromDatabase = async (user) => {
+    const retrievedFavorites = await API.getFavorites(user)
+    userActions.getFavorites(retrievedFavorites)
   }
 
   toggleCreate = async (event) => {
@@ -40,8 +48,9 @@ export class Login extends Component {
     const { create, email, password, name } = this.state;
     if (create) {
       const message = await API.createUser({email, password, name});
-      this.setState({error: 'Email has already been used'})
-    }
+    } else {
+        this.setState({error: 'Email has already been used'})
+      }
     this.setState({ create: true});
   }
 
@@ -90,7 +99,7 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({user: state.user});
+const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (user, favorites) => dispatch(userActions.successfulLogin(user, favorites))
 });

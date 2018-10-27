@@ -9,14 +9,16 @@ import * as API from '../../utilities/API'
 
 export class Card extends Component {
 	handleFavorite = async (movie) => {
-    const { user } = this.props;
+    const { user, addToFavorites, removeFromFavorites, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
     if (favorite) {
+    	removeFromFavorites(movie)
       API.removeFavorite(movie, user);
     } else {
+    	addToFavorites(movie)
       API.addFavorite(movie, user);
     }
-    this.props.toggleFavorite(id);
+    toggleFavorite(id);
 	}
 
   render() {

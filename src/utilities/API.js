@@ -70,13 +70,8 @@ export const removeFavorite = async (movie, user) => {
 
 export const getFavorites = async (user) => {
   try {
-    return fetch(`http://localhost:3000/api/users/${user.id}/favorites`, {
-      method: 'GET',
-      body: JSON.stringify(user.id),
-      headers:{
-        'Content-Type': 'application/json'
-      }      
-    })
+    const url = `http://localhost:3000/api/users/${user.id}/favorites`
+    await fetchData(url)
   }
   catch (error) {
     console.log(error.message)
