@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Should render like snapshot 1`] = `
+exports[`Card Component Should render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Card
+    addToFavorites={[MockFunction]}
+    changeFavorites={[MockFunction]}
     movie={
       Object {
         "movie": Object {
@@ -15,6 +17,7 @@ ShallowWrapper {
         },
       }
     }
+    user={Object {}}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -35,6 +38,15 @@ ShallowWrapper {
         <h3
           className="movie-title"
         />
+        <button
+          className="card-favorite-button"
+          onClick={[Function]}
+        >
+          <img
+            alt="star"
+            src="star-clear.svg"
+          />
+        </button>
         <p />
         <p>
           Opens: 
@@ -58,6 +70,15 @@ ShallowWrapper {
           <h3
             className="movie-title"
           />,
+          <button
+            className="card-favorite-button"
+            onClick={[Function]}
+          >
+            <img
+              alt="star"
+              src="star-clear.svg"
+            />
+          </button>,
           <p />,
           <p>
             Opens: 
@@ -81,6 +102,33 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <img
+              alt="star"
+              src="star-clear.svg"
+            />,
+            "className": "card-favorite-button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "star",
+              "src": "star-clear.svg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": "button",
         },
         Object {
           "instance": null,
@@ -144,6 +192,15 @@ ShallowWrapper {
           <h3
             className="movie-title"
           />
+          <button
+            className="card-favorite-button"
+            onClick={[Function]}
+          >
+            <img
+              alt="star"
+              src="star-clear.svg"
+            />
+          </button>
           <p />
           <p>
             Opens: 
@@ -167,6 +224,15 @@ ShallowWrapper {
             <h3
               className="movie-title"
             />,
+            <button
+              className="card-favorite-button"
+              onClick={[Function]}
+            >
+              <img
+                alt="star"
+                src="star-clear.svg"
+              />
+            </button>,
             <p />,
             <p>
               Opens: 
@@ -190,6 +256,33 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="star"
+                src="star-clear.svg"
+              />,
+              "className": "card-favorite-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "star",
+                "src": "star-clear.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "button",
           },
           Object {
             "instance": null,
