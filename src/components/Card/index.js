@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
@@ -60,5 +61,9 @@ export const mapDispatchToProps = (dispatch) => ({
 	addToFavorites: (movie) => dispatch(addFavorite(movie)),
 	removeFromFavorites: (movie) => dispatch(removeFavorite(movie))
 })
+
+Card.propTypes = {
+  movie: PropTypes.object.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
