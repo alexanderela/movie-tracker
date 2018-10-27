@@ -12,3 +12,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.main-header {
+  background-color: #1f1f1f;
+  box-shadow: inset 0 0 7px black;
+  display: inline-flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  height: 4rem;
+  width: 100%;
+}
+
+.main-header button {
+  border: none;
+  background-color: transparent;
+  color: #fcfcfc;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 1rem;
+  outline: none;
+}
+
+.main-header button:hover {
+  color: #c2c2c2;
+}
+
+.all-favorites {
+}
+
+.header-title {
+  display: inline-block;
+  height: 3rem;
+  margin: 8px;
+}
+
+.main-logo {
+  height: 3rem;
+  margin-right: 5px;
+}
+
+.header-text {
+  color: #fcfcfc;
+  display: inline-block;
+  font-family: 'Oleo Script', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  vertical-align: 14px;
+}
+
+.sign-out {
+}

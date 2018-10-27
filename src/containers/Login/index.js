@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import './Login.css';
 import * as userActions from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
@@ -72,7 +73,8 @@ export class Login extends Component {
           onChange={this.handleChange}/>
         { !create 
             ? <button 
-                type='submit' 
+                type='submit'
+                className='login-button'
                 onClick={this.submitLogin}>Login
               </button>
             : null }
