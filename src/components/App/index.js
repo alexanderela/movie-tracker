@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import MainPage from '../../containers/MainPage';
 import Login from '../../containers/Login';
 import './App.css';

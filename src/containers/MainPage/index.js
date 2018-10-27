@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardContainer from '../CardContainer';
+import CardContainer from '../../components/CardContainer';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 import * as DataCleaner from '../../utilities/DataCleaner'
@@ -33,13 +33,13 @@ export class MainPage extends Component {
           </button>
         </div>
         <div className="header-container-splitter"></div>
-        <CardContainer  />
+        <CardContainer movies={this.props.movies}/>
       </div>
     )
   }
 }
 
-export const mapStateToProps = ({user}) => ({user});
+export const mapStateToProps = ({user, movies}) => ({user, movies});
 export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(userActions.setMovies(movies)),
   signOut: () => dispatch(userActions.signOut())
