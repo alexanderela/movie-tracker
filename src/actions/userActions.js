@@ -17,15 +17,14 @@ export const toggleFavorite = (id) => ({
   id
 })
 
-export const addFavorite = (id) => ({
+export const addFavorite = (movie) => ({
 	type: 'ADD_FAVORITE',
-	id
+  movie
 })
 
-export const removeFavorite = (userId, movieId) => ({
+export const removeFavorite = (movie) => ({
   type: 'REMOVE_FAVORITE',
-  userId,
-  movieId
+  movie
 })
 
 export const getFavorites = (id) => ({
