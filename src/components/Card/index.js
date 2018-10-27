@@ -22,13 +22,16 @@ const Card = ({ movie, user, changeFavorite }) => {
 	return(
 		<div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
 			<div className="card-inner-wrapper">
-				<h3 className="movie-title" >{movie.title}</h3>
-				<button 
-					className="card-favorite-button" 
-					onClick={() => handleFavorite(movie)} 
-				>
-					<img alt="" src={star} />
-				</button>
+				<h3 className="movie-title" >
+					<div className="movie-rating" >Rating {movie.rating}/10</div>
+					{movie.title}
+					<button 
+						className="card-favorite-button" 
+						onClick={() => handleFavorite(movie)} 
+					>
+						<img alt="" src={star} />
+					</button>
+				</h3>
 				{/* <img  */}
 					{/* src={movie.poster}  */}
 					{/* className='poster-image'/> */}
