@@ -13,7 +13,8 @@ export class Login extends Component {
       password: '',
       name: '',
       error: '',
-      create: false
+      create: false,
+      favorites: []
     }
   }
 
@@ -25,8 +26,8 @@ export class Login extends Component {
 
   submitLogin = async (event) => {
     event.preventDefault();
-    const { email, password } = this.state;
-    const loginAttempt = await API.loginUser({email, password});
+    const { email, password, favorites } = this.state;
+    const loginAttempt = await API.loginUser({email, password}, favorites);
     if (loginAttempt) {
       this.props.loginUser(loginAttempt);
     } else {
@@ -45,7 +46,7 @@ export class Login extends Component {
   }
 
   render() {
-    const { email, password, create, error, name } = this.state;
+    const { email, password, create, error, name, favorites } = this.state;
     return (
       <div className='Login'>
       <form className='Login-form'>
@@ -91,7 +92,7 @@ export class Login extends Component {
 
 const mapStateToProps = (state) => ({user: state.user});
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (user) => dispatch(userActions.successfulLogin(user))
+  loginUser: (user, favorites) => dispatch(userActions.successfulLogin(user, favorites))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

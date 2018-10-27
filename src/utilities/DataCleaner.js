@@ -6,6 +6,7 @@ export const fetchMovies = async () => {
 
 	const movieData = await API.fetchData(url)
 	const currentMovies = await returnMovieData(movieData.results)
+	console.log(currentMovies)
 	return currentMovies
 }
 
@@ -20,7 +21,7 @@ export const returnMovieData = async (movies) => {
 			releaseDate: formatReleaseDate(movie.release_date),
 			rating: movie.vote_average,
 			isFavorite: false,
-			id: movie.title,
+			id: movie.id,
 		}
 	})
 	return Promise.all(moviePromises)

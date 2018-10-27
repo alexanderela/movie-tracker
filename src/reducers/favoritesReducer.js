@@ -1,18 +1,17 @@
-export const defaultState = []
+const defaultState = []
 
 export const favoritesReducer = (state = defaultState, action) => {
   switch(action.type) {
-    // case 'TOGGLE_FAVORITE':
-    //   const allMovies = action.movies.map(movie => {
-    //   	if(movie.id === action.id) {
-    //     	return {...movie, isFavorite: !movie.isFavorite}
-    //   	} else {
-    //   		return movie
-    //   	}
-    //   });
-    //   	return allMovies.filter(movie => {
-    //   		return movie.id === action.id
-    //   	})
+    case 'ADD_FAVORITE':
+      if(!state.includes(action.id)) {
+      return [...state, action.id]
+     }
+    case 'REMOVE_FAVORITE':
+      return state.filter(id => {
+        return id !== action.id
+      })
+    case 'GET_FAVORITES':
+      return state
     default: 
       return state;
   }
