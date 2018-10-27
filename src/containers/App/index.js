@@ -21,8 +21,12 @@ export class App extends Component {
         <Route exact path='/' render={(props) => <MainPage />}/>
         <Route exact path='/login' render={() => loggedIn ?
           <Redirect to='/'/> : <Login/>}/>
-        <Route exact path='/favorites' render={() => !loggedIn ?
-          <Redirect to='/'/> : <Login/>}/>
+        <Route exact path='/favorites' render={() => {
+          if(!loggedIn) {
+            alert('Please create an account or login to select favorites')
+            return <Login /> }
+          }
+        }/>
       </div>
     );
   }
