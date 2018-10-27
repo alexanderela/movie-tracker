@@ -14,7 +14,11 @@ export const MainPage = ({ user, signOut }) => {
     <div className='MainPage'>
       <div className="main-header" >
         <button
-          className='all-favorites'>Favorites
+          className='all-favorites'>
+          <NavLink
+            to='/favorites'
+            className='nav-link'>Favorites
+          </NavLink>
         </button>
         <div className="header-title">
           <img className="main-logo" alt="" src={redLogo} />
@@ -24,9 +28,10 @@ export const MainPage = ({ user, signOut }) => {
           ? <button 
             className='sign-out' 
             onClick={handleSignOut}>
-            <NavLink 
-              to='/' 
-              className='nav-link'>Sign Out</NavLink>
+              <NavLink 
+                to='/' 
+                className='nav-link'>Sign Out
+              </NavLink>
           </button>
           : <button 
             className='sign-in'>

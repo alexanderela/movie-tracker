@@ -20,7 +20,9 @@ export class App extends Component {
       <div className='App'>
         <Route exact path='/' render={(props) => <MainPage />}/>
         <Route exact path='/login' render={() => loggedIn ?
-            <Redirect to='/'/> : <Login/>}/>
+          <Redirect to='/'/> : <Login/>}/>
+        <Route exact path='/favorites' render={() => !loggedIn ?
+          <Redirect to='/'/> : <Login/>}/>
       </div>
     );
   }
