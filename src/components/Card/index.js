@@ -2,20 +2,20 @@ import React from 'react';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
-import { toggleFavorite, addFavorite } from '../../actions/userActions';
+import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
-const Card = ({ movie, user, changeFavorite }) => {
+const Card = ({ movie, user, favorites, changeFavorite, addToFavorites, removeFromFavorites }) => {
 	const handleFavorite = (movie) => {
-		console.log('movie: ' + movie.id + ', isFavorite: ' + movie.isFavorite)
 		const { id, isFavorite } = movie
 	 	changeFavorite(id)
 	 	if(isFavorite) {
-	 		API.removeFavorite(id, user)
+			removeFromFavorites(movie)
+	 		API.removeFavorite(movie, user)
 	 	} else {
-			// debugger
-	 		API.addFavorite(movie, user)
+	 		addToFavorites(movie)
+			API.addFavorite(movie, user)
 	 	}
 	}
 
@@ -26,7 +26,10 @@ const Card = ({ movie, user, changeFavorite }) => {
 					<div className="movie-rating" >Rating {movie.rating}/10</div>
 					{movie.title}
 					<button 
-						className="card-favorite-button" 
+						className={`card-favorite-button
+							${movie.isFavorite || favorites.includes(movie)
+								? 'fav-btn-active'
+								: 'fav-btn-inactive'}`} 
 						onClick={() => handleFavorite(movie)} 
 					>
 						<img alt="" src={star} />
@@ -44,12 +47,14 @@ const Card = ({ movie, user, changeFavorite }) => {
 }
 
 export const mapStateToProps = (state) => ({
-	user: state.user
+	user: state.user,
+	favorites: state.favorites
 })
 
 export const mapDispatchToProps = (dispatch) => ({
 	changeFavorite: (id) => dispatch(toggleFavorite(id)),
-	addToFavorites: (movie, userId) => dispatch(addFavorite(movie, userId))
+	addToFavorites: (movie) => dispatch(addFavorite(movie)),
+	removeFromFavorites: (movie) => dispatch(removeFavorite(movie))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

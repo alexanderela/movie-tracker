@@ -6,7 +6,6 @@ export const fetchMovies = async () => {
 
 	const movieData = await API.fetchData(url)
 	const currentMovies = await returnMovieData(movieData.results)
-	console.log(currentMovies)
 	return currentMovies
 }
 

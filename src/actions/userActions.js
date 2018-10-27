@@ -12,25 +12,28 @@ export const signOut = () => ({
   type: 'SIGN_OUT'
 })
 
+export const signIn = () => ({
+  type: 'SIGN_IN'
+})
+
 export const toggleFavorite = (id) => ({
   type: 'TOGGLE_FAVORITE',
   id
 })
 
-export const addFavorite = (id) => ({
+export const addFavorite = (movie) => ({
 	type: 'ADD_FAVORITE',
-	id
+  movie
 })
 
-export const removeFavorite = (userId, movieId) => ({
+export const removeFavorite = (movie) => ({
   type: 'REMOVE_FAVORITE',
-  userId,
-  movieId
+  movie
 })
 
-export const getFavorites = (id) => ({
+export const getFavorites = (favoriteMovies) => ({
   type: 'GET_FAVORITES',
-  id
+  favoriteMovies
 })
 
 export const setMovies = (movies) => ({
