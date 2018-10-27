@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
@@ -6,9 +6,9 @@ import { toggleFavorite, addFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
-export class Card extends React.Component {
-
+export class Card extends Component {
 	handleFavorite = (movie) => {
+    const { changeFavorite, user }  = this.props;
 		const { id, isFavorite } = movie
 	 	changeFavorite(id)
 	 	if(isFavorite) {
@@ -19,7 +19,7 @@ export class Card extends React.Component {
 	}
 
   render() {
-  const { movie, user, changeFavorite } = this.props;
+    const { movie, user, changeFavorite } = this.props;
 	return (
 		<div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
 			<div className="card-inner-wrapper">
@@ -28,7 +28,7 @@ export class Card extends React.Component {
 					{movie.title}
 					<button
 						className="card-favorite-button"
-						onClick={() => handleFavorite(movie)}
+						onClick={() => this.handleFavorite(movie)}
 					>
 						<img alt="" src={star} />
 					</button>
