@@ -20,6 +20,7 @@ export class Card extends Component {
     this.props.toggleFavorite(id);
 	}
 
+<<<<<<< HEAD
   render() {
     const { movie, toggleFavorite } = this.props;
 
