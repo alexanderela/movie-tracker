@@ -42,12 +42,12 @@ export const MainPage = ({ user, signOut }) => {
           }
       </div>
       <div className="header-container-splitter"></div>
-      <CardContainer  />
+      <CardContainer />
     </div>
   )
 }
 
-const mapStateToProps = (state) => ({user: state.user});
+const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(userActions.signOut())
 });

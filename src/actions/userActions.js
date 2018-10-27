@@ -31,9 +31,9 @@ export const removeFavorite = (movie) => ({
   movie
 })
 
-export const getFavorites = (id) => ({
+export const getFavorites = (favoriteMovies) => ({
   type: 'GET_FAVORITES',
-  id
+  favoriteMovies
 })
 
 export const setMovies = (movies) => ({

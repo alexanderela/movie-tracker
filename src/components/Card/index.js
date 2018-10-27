@@ -26,7 +26,10 @@ const Card = ({ movie, user, favorites, changeFavorite, addToFavorites, removeFr
 					<div className="movie-rating" >Rating {movie.rating}/10</div>
 					{movie.title}
 					<button 
-						className="card-favorite-button" 
+						className={`card-favorite-button
+							${movie.isFavorite || favorites.includes(movie)
+								? 'fav-btn-active'
+								: 'fav-btn-inactive'}`} 
 						onClick={() => handleFavorite(movie)} 
 					>
 						<img alt="" src={star} />
