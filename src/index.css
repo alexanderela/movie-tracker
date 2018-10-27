@@ -35,13 +35,17 @@ code {
   outline: none;
 }
 
-.main-header button:hover {
+/*.main-header button:hover {
   color: #c2c2c2;
-}
+}*/
 
 .nav-link {
   color: #fcfcfc;
   text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #c2c2c2;  
 }
 
 .all-favorites {
