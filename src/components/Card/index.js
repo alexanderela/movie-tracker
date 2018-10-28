@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
-import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/movieActions';
+import { toggleFavorite } from '../../actions/movieActions';
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 
@@ -12,10 +12,8 @@ export class Card extends Component {
     const { user, addToFavorites, removeFromFavorites, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
     if (favorite) {
-    	removeFromFavorites(movie)
       API.removeFavorite(movie, user);
     } else {
-    	addToFavorites(movie)
       API.addFavorite(movie, user);
     }
     toggleFavorite(id);
@@ -56,8 +54,6 @@ export const mapStateToProps = ({ user, favorites }) => ({ user, favorites })
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
-	addToFavorites: (movie) => dispatch(addFavorite(movie)),
-	removeFromFavorites: (movie) => dispatch(removeFavorite(movie))
 })
 
 Card.propTypes = {
