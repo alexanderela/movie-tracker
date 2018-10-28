@@ -25,18 +25,18 @@ export const MainPage = ({ user, signOut, movies, getFavorites }) => {
           <h3 className="header-text">MovieTracker</h3>
         </div>
         { user.loggedIn
-          ? <button 
-            className='sign-out' 
+          ? <button
+            className='sign-out'
             onClick={handleSignOut}>
-              <NavLink 
-                to='/' 
+              <NavLink
+                to='/'
                 className='nav-link'>Sign Out
               </NavLink>
           </button>
-          : <button 
+          : <button
             className='sign-in'>
-            <NavLink 
-              to='/login' 
+            <NavLink
+              to='/login'
               className='nav-link'>Sign In</NavLink>
           </button>
           }

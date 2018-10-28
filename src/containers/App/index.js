@@ -28,7 +28,7 @@ export class App extends Component {
         <Route exact path='/favorites' render={() => {
           if(!loggedIn) {
             alert('Please create an account or login to select favorites')
-            return <Login />
+            return <Redirect to='/login'/>
           } else {
             return <MainPage movies={favorites} getFavorites={this.handleGetFavorites}/>}
           }
