@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 
 const CardContainer = ({ movies }) => {
-	console.log(movies)
 	const movieCards = movies.map(movie => {
 		return <Card movie={movie} key={movie.title}  />
 	})
