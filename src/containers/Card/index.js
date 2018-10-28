@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Card.css';
-import star from '../../images/star-clear.svg';
-import filledStar from '../../images/star.svg';
-import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/userActions';
 import { connect } from 'react-redux';
-import * as API from '../../utilities/API'
+import PropTypes from 'prop-types';
+import { toggleFavorite } from '../../actions/movieActions';
+import { removeFavorite, addFavorite } from '../../utilities/API';
+import filledStar from '../../images/star.svg';
+import star from '../../images/star-clear.svg';
+import './Card.css';
 
 export class Card extends Component {
 	constructor() {
@@ -16,16 +16,18 @@ export class Card extends Component {
 	}
 
 	handleFavorite = async (movie) => {
-    console.log(movie);
-    const { user } = this.props;
+    const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
-    if (favorite) {
-      API.removeFavorite(movie, user);
-    } else {
-      API.addFavorite(movie, user);
+    if (!user.loggedIn) {
+      return undefined;
     }
-    this.props.toggleFavorite(id);
-  }
+    if (favorite) {
+      removeFavorite(movie, user);
+    } else {
+      addFavorite(movie, user);
+    }
+    toggleFavorite(id);
+	}
   
   handleExpand = () => {
     this.setState({
@@ -35,11 +37,10 @@ export class Card extends Component {
 
   render() {
     const { movie, toggleFavorite } = this.props;
-    const { expanded } = this.state;
 
     return(
 			<div
-        className={expanded ? 'Card expanded-card' : 'Card'}
+				className='Card'
 				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
         onClick={this.handleExpand}>
         <div className="card-inner-wrapper">
@@ -48,18 +49,12 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite
-                  ? 'fav-btn-active'
-                  : 'fav-btn-inactive'}`}
-              onClick={() => this.handleFavorite(movie)}
-            >
-              <img alt="" src={movie.favorite ? filledStar : star} />
+                ${movie.favorite ? 'fav-btn-active' : 'fav-btn-inactive'}`}
+              onClick={() => this.handleFavorite(movie)}>
+              <img alt="" src={star} />
             </button>
           </h3>
-          {/* <img  */}
-            {/* src={movie.poster}  */}
-            {/* className='poster-image'/> */}
-          <p>{movie.overview}</p>
+         <p>{movie.overview}</p>
           <p>Opens: {movie.releaseDate}</p>
           <p>Viewer Rating: {movie.rating}</p>
         </div>
@@ -68,16 +63,11 @@ export class Card extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-	user: state.user,
-	favorites: state.favorites
-})
+export const mapStateToProps = ({ user }) => ({ user });
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
-	addToFavorites: (movie) => dispatch(addFavorite(movie)),
-	removeFromFavorites: (movie) => dispatch(removeFavorite(movie))
-})
+});
 
 Card.propTypes = {
   movie: PropTypes.object.isRequired,
