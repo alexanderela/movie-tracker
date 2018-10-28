@@ -53,16 +53,11 @@
 }
 
 .card-favorite-button:hover {
-	background-color: #d2d2d2;
-}
-
-.card-favorite-button:hover img {
-	filter: invert(10%)
+	background-color: #444;
 }
 
 .card-favorite-button img {
 	bottom: 15px;
-	filter: invert(90%);
 	height: 2rem;
 	left: 15px;
 	position: relative;
@@ -96,6 +91,8 @@
 .poster-image {
 	width: 15rem;
 }
+
+/* --------------- MEDIA QUERIES --------------- */
 
 @media screen and (max-width: 1600px) {
   .Card {
