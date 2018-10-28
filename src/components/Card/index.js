@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import './Card.css';
-import star from '../../images/star-clear.svg';
-import filledStar from '../../images/star.svg';
-import { toggleFavorite } from '../../actions/movieActions';
 import { connect } from 'react-redux';
-import * as API from '../../utilities/API'
+import PropTypes from 'prop-types';
+import { toggleFavorite } from '../../actions/movieActions';
+import { removeFavorite, addFavorite } from '../../utilities/API';
+import filledStar from '../../images/star.svg';
+import star from '../../images/star-clear.svg';
+import './Card.css';
 
 export class Card extends Component {
 	handleFavorite = async (movie) => {
     const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
     if (favorite) {
-      API.removeFavorite(movie, user);
+      removeFavorite(movie, user);
     } else {
-      API.addFavorite(movie, user);
+      addFavorite(movie, user);
     }
     toggleFavorite(id);
 	}
@@ -30,18 +30,12 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite
-                  ? 'fav-btn-active'
-                  : 'fav-btn-inactive'}`}
-              onClick={() => this.handleFavorite(movie)}
-            >
+                ${movie.favorite ? 'fav-btn-active' : 'fav-btn-inactive'}`}
+              onClick={() => this.handleFavorite(movie)}>
               <img alt="" src={star} />
             </button>
           </h3>
-          {/* <img  */}
-            {/* src={movie.poster}  */}
-            {/* className='poster-image'/> */}
-          <p>{movie.overview}</p>
+         <p>{movie.overview}</p>
           <p>Opens: {movie.releaseDate}</p>
           <p>Viewer Rating: {movie.rating}</p>
         </div>
@@ -50,11 +44,11 @@ export class Card extends Component {
   }
 }
 
-export const mapStateToProps = ({ user }) => ({ user })
+export const mapStateToProps = ({ user }) => ({ user });
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
-})
+});
 
 Card.propTypes = {
   movie: PropTypes.object.isRequired,
