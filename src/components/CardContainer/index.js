@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CardContainer.css'
-import Card from '../../components/Card';
-import { connect } from 'react-redux';
-
+import Card from '../../containers/Card';
 
 const CardContainer = ({ movies }) => {
-	console.log(movies)
 	const movieCards = movies.map(movie => {
 		return <Card movie={movie} key={movie.title}  />
 	})
@@ -16,12 +13,10 @@ const CardContainer = ({ movies }) => {
 			{ movieCards }
 		</div>
 	)
-
-	
 }
 
-export const mapStateToProps = ({}) => ({});
+CardContainer.propTypes = {
+  movies: PropTypes.array.isRequired
+}
 
-export const mapDispatchToProps = (dispatch) => ({ });
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
+export default CardContainer;

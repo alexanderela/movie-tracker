@@ -10,6 +10,14 @@ export const moviesReducer = (state = [], action) => {
       		return movie
       	}
       });
+    case 'SET_FAVORITES':
+      const favoriteIds = action.favoriteMovies.map(movie => movie.movie_id);
+      return state.map(movie => {
+        if (favoriteIds.includes(movie.id)) {
+          return { ...movie, favorite: true };
+        }
+        return movie;
+      });
     default:
       return state;
   }

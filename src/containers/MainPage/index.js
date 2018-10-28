@@ -1,11 +1,11 @@
 import React from 'react';
-import CardContainer from '../CardContainer';
+import CardContainer from '../../components/CardContainer';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 import redLogo from '../../images/film-red.svg';
 
-export const MainPage = ({ user, signOut, movies, getFavorites }) => {
+export const MainPage = ({ user, signOut, movies }) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     signOut()
@@ -25,18 +25,18 @@ export const MainPage = ({ user, signOut, movies, getFavorites }) => {
           <h3 className="header-text">MovieTracker</h3>
         </div>
         { user.loggedIn
-          ? <button 
-            className='sign-out' 
+          ? <button
+            className='sign-out'
             onClick={handleSignOut}>
-              <NavLink 
-                to='/' 
+              <NavLink
+                to='/'
                 className='nav-link'>Sign Out
               </NavLink>
           </button>
-          : <button 
+          : <button
             className='sign-in'>
-            <NavLink 
-              to='/login' 
+            <NavLink
+              to='/login'
               className='nav-link'>Sign In</NavLink>
           </button>
           }

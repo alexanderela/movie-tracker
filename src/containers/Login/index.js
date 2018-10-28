@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Login.css';
-import * as userActions from '../../actions/userActions';
+import { setFavorites } from '../../actions/movieActions';
+import { successfulLogin } from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
 
@@ -14,7 +15,6 @@ export class Login extends Component {
       name: '',
       error: '',
       create: false,
-      favorites: []
     }
   }
 
@@ -26,21 +26,17 @@ export class Login extends Component {
 
   submitLogin = async (event) => {
     event.preventDefault();
-    const { email, password, favorites } = this.state;
-    const { user, loginUser } = this.props
+    const { email, password } = this.state;
+    const { user, loginUser, setFavorites } = this.props
 
-    const loginAttempt = await API.loginUser({email, password}, favorites);
+    const loginAttempt = await API.loginUser({email, password});
     if (loginAttempt) {
       loginUser(loginAttempt);
-      this.getFavoritesFromDatabase(user)
+      const favorites = await API.getFavorites(loginAttempt);
+      setFavorites(favorites);
     } else {
       this.setState({error: 'Email and Password did not match'});
     }
-  }
-
-  getFavoritesFromDatabase = async (user) => {
-    const retrievedFavorites = await API.getFavorites(user)
-    userActions.getFavorites(retrievedFavorites)
   }
 
   toggleCreate = async (event) => {
@@ -49,12 +45,12 @@ export class Login extends Component {
     if (create) {
       const message = await API.createUser({email, password, name});
       this.setState({error: 'Email has already been used'})
-    } 
+    }
     this.setState({ create: true});
   }
 
   render() {
-    const { email, password, create, error, name, favorites } = this.state;
+    const { email, password, create, error, name } = this.state;
     return (
       <div className='Login'>
       <form className='Login-form'>
@@ -80,15 +76,15 @@ export class Login extends Component {
           type='text'
           placeholder='Password'
           onChange={this.handleChange}/>
-        { !create 
-            ? <button 
+        { !create
+            ? <button
                 type='submit'
                 className='login-button'
                 onClick={this.submitLogin}>Login
               </button>
             : null }
-        <button 
-          className='create-user' 
+        <button
+          className='create-user'
           onClick={this.toggleCreate}>Create User
         </button>
         { error.length ? <div className="error">{error}</div> : null }
@@ -100,7 +96,8 @@ export class Login extends Component {
 
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (user, favorites) => dispatch(userActions.successfulLogin(user, favorites))
+  loginUser: (user) => dispatch(successfulLogin(user)),
+  setFavorites: (favoriteMovies) => dispatch(setFavorites(favoriteMovies))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
