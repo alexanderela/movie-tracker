@@ -48,9 +48,8 @@ export class Login extends Component {
     const { create, email, password, name } = this.state;
     if (create) {
       const message = await API.createUser({email, password, name});
-    } else {
-        this.setState({error: 'Email has already been used'})
-      }
+      this.setState({error: 'Email has already been used'})
+    } 
     this.setState({ create: true});
   }
 
