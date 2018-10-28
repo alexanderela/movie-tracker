@@ -29,18 +29,19 @@ export class Card extends Component {
 	}
 
   handleExpand = () => {
-    console.log('goteeeeem')
+    console.log('goteeeeem');
     this.setState({
       expanded: !this.state.expanded
     })
   }
 
   render() {
-    const { movie, user } = this.props;
+    const { movie, toggleFavorite, user } = this.props;
+    const { expanded } = this.state;
 
     return(
 			<div
-				className='Card'
+        className={expanded ? 'Card expanded-card' : 'Card'}
 				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
         onClick={this.handleExpand}>
         <div className="card-inner-wrapper">
@@ -49,9 +50,12 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite && user.loggedIn ? 'fav-btn-active' : 'fav-btn-inactive'}`}
-              onClick={() => this.handleFavorite(movie)}>
-              <img alt="" src={star} />
+                ${movie.favorite && user.loggedIn
+                  ? 'fav-btn-active'
+                  : 'fav-btn-inactive'}`}
+              onClick={() => this.handleFavorite(movie)}
+            >
+              <img alt="" src={movie.favorite ? filledStar : star} />
             </button>
           </h3>
          <p>{movie.overview}</p>
