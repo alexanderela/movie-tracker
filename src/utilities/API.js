@@ -1,7 +1,7 @@
 export const fetchData = async (url) => {
 	const response = await fetch(url)
-  const cleanResponse = await response.json()
-  return cleanResponse
+  const responseJson = await response.json()
+  return responseJson
 }
 
 export const loginUser = async (user) => {
@@ -69,11 +69,7 @@ export const removeFavorite = async (movie, user) => {
 }
 
 export const getFavorites = async (user) => {
-  try {
-    const url = `http://localhost:3000/api/users/${user.id}/favorites`
-    await fetchData(url)
-  }
-  catch (error) {
-    console.log(error.message)
-  }
+  const response = await fetch(`http://localhost:3000/api/users/${user.id}/favorites`);
+  const favorites = await response.json();
+  return favorites.data;
 }
