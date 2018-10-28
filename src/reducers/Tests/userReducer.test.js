@@ -14,9 +14,7 @@ describe('userReducer', () => {
   it('Should add user to state on SUCCESSFUL_LOGIN', () => {
     const mockAction = {
       type: 'SUCCESSFUL_LOGIN',
-      user: {
-        id: 1
-      }
+      id: 1
     }
 
     const expected = {
@@ -31,9 +29,7 @@ describe('userReducer', () => {
   it('Should remove user from state on SIGN_OUT', () => {
     const state = {
       id: 1,
-      name: 'Tim',
-      email: 'tim@aol.com',
-      loggedIn: false
+      loggedIn: true
     }
     const mockAction = { type: 'SIGN_OUT' }
     const newState = userReducer(state, mockAction);
