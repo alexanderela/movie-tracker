@@ -8,6 +8,7 @@ describe('userReducer', () => {
 
   it('Should return default state when no type given', () => {
     const newState = userReducer(undefined, {});
+    expect(newState).toEqual(defaultState);
   });
 
   it('Should add user to state on SUCCESSFUL_LOGIN', () => {
