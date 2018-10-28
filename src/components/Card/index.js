@@ -9,7 +9,7 @@ import * as API from '../../utilities/API'
 
 export class Card extends Component {
 	handleFavorite = async (movie) => {
-    const { user, addToFavorites, removeFromFavorites, toggleFavorite } = this.props;
+    const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
     if (favorite) {
       API.removeFavorite(movie, user);
@@ -20,7 +20,7 @@ export class Card extends Component {
 	}
 
   render() {
-    const { movie, toggleFavorite, favorites } = this.props;
+    const { movie, toggleFavorite } = this.props;
 
     return(
       <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
@@ -30,7 +30,7 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite || favorites.includes(movie)
+                ${movie.favorite
                   ? 'fav-btn-active'
                   : 'fav-btn-inactive'}`}
               onClick={() => this.handleFavorite(movie)}
@@ -50,7 +50,7 @@ export class Card extends Component {
   }
 }
 
-export const mapStateToProps = ({ user, favorites }) => ({ user, favorites })
+export const mapStateToProps = ({ user }) => ({ user })
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (movieId) => dispatch(toggleFavorite(movieId)),
