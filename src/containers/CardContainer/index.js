@@ -17,7 +17,7 @@ const CardContainer = ({ movies }) => {
 		</div>
 	)
 
-	
+
 }
 
 export const mapStateToProps = ({}) => ({});

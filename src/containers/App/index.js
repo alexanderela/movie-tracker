@@ -16,7 +16,7 @@ export class App extends Component {
     this.props.setMovies(movies)
   }
 
-  getFavorites() {
+  filterFavorites() {
     return this.props.movies.filter((movie) => movie.favorite);
   }
 
@@ -26,7 +26,7 @@ export class App extends Component {
 
     return (
       <div className='App'>
-        <Route exact path='/' render={() => <MainPage movies={movies} getFavorites={this.handleGetFavorites}/>}/>
+        <Route exact path='/' render={() => <MainPage movies={movies}/>}/>
         <Route exact path='/login' render={() => loggedIn ?
           <Redirect to='/'/> : <Login/>}/>
         <Route exact path='/favorites' render={() => {
@@ -34,7 +34,7 @@ export class App extends Component {
             alert('Please create an account or login to select favorites')
             return <Redirect to='/login'/>
           } else {
-            return <MainPage movies={this.getFavorites()} getFavorites={this.handleGetFavorites}/>}
+            return <MainPage movies={this.filterFavorites()}/>}
           }
         }/>
       </div>

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 import redLogo from '../../images/film-red.svg';
 
-export const MainPage = ({ user, signOut, movies, getFavorites }) => {
+export const MainPage = ({ user, signOut, movies }) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     signOut()
