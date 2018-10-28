@@ -57,7 +57,6 @@ export const addFavorite = async (movie, user) => {
 
 export const removeFavorite = async (movie, user) => {
   try {
-    console.log(movie.id)
     return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
       method: 'DELETE',
       body: JSON.stringify({

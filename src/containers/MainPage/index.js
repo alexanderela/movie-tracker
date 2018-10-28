@@ -3,12 +3,15 @@ import CardContainer from '../../components/CardContainer';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
+import * as movieActions from '../../actions/movieActions';
 import redLogo from '../../images/film-red.svg';
+import * as DataCleaner from '../../utilities/DataCleaner'
 
-export const MainPage = ({ user, signOut, movies }) => {
-  const handleSignOut = (event) => {
+export const MainPage = ({ user, signOut, movies, toggleFavorite, clearFavorites }) => {
+  const handleSignOut = async (event) => {
     event.preventDefault();
-    signOut()
+    clearFavorites(movies);
+    signOut();
   }
 
   return (
@@ -49,7 +52,9 @@ export const MainPage = ({ user, signOut, movies }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(userActions.signOut())
+  signOut: () => dispatch(userActions.signOut()),
+  toggleFavorite: (movieId) => dispatch(movieActions.toggleFavorite(movieId)),
+  clearFavorites: (movies) => dispatch(movieActions.clearFavorites(movies))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

@@ -1,6 +1,7 @@
 export const moviesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_MOVIES':
+      console.log(action.movies)
       return [...state, ...action.movies];
 		case 'TOGGLE_FAVORITE':
       return state.map(movie => {
@@ -17,6 +18,10 @@ export const moviesReducer = (state = [], action) => {
           return { ...movie, favorite: true };
         }
         return movie;
+      });
+    case 'CLEAR_FAVORITES':
+      return state.map(movie => {
+        return {...movie, favorite: false}
       });
     default:
       return state;

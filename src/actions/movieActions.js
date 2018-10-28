@@ -12,3 +12,8 @@ export const setMovies = (movies) => ({
   type: 'SET_MOVIES',
   movies
 });
+
+export const clearFavorites = (favoriteMovies) => ({
+	type: 'CLEAR_FAVORITES',
+	favoriteMovies
+})
