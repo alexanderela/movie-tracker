@@ -16,6 +16,10 @@ export class App extends Component {
     this.props.setMovies(movies)
   }
 
+  getFavorites() {
+    return this.props.movies.filter((movie) => movie.favorite);
+  }
+
   render() {
     const { loggedIn } = this.props.user;
     const { movies, favorites } = this.props
@@ -30,7 +34,7 @@ export class App extends Component {
             alert('Please create an account or login to select favorites')
             return <Redirect to='/login'/>
           } else {
-            return <MainPage movies={favorites} getFavorites={this.handleGetFavorites}/>}
+            return <MainPage movies={this.getFavorites()} getFavorites={this.handleGetFavorites}/>}
           }
         }/>
       </div>
