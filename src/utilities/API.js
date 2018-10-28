@@ -51,7 +51,29 @@ export const addFavorite = async (movie, user) => {
 }
 
 export const removeFavorite = async (movie, user) => {
-  return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
-    method: 'DELETE'
-  });
+  try {
+    return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        movie_id: movie.id,
+        user_id: user.id,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+  catch (error) {
+    console.log(error.message)
+  }
+}
+
+export const getFavorites = async (user) => {
+  try {
+    const url = `http://localhost:3000/api/users/${user.id}/favorites`
+    await fetchData(url)
+  }
+  catch (error) {
+    console.log(error.message)
+  }
 }

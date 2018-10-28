@@ -3,18 +3,18 @@ import CardContainer from '../CardContainer';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
-import redLogo from '../../images/film-red.svg'
+import redLogo from '../../images/film-red.svg';
 
-export const MainPage = ({ user, signOut }) => {
+export const MainPage = ({ user, signOut, movies, getFavorites }) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     signOut()
   }
+
   return (
     <div className='MainPage'>
       <div className="main-header" >
-        <button
-          className='all-favorites'>
+        <button className='all-favorites'>
           <NavLink
             to='/favorites'
             className='nav-link'>Favorites
@@ -42,7 +42,7 @@ export const MainPage = ({ user, signOut }) => {
           }
       </div>
       <div className="header-container-splitter"></div>
-      <CardContainer />
+      <CardContainer movies={movies}/>
     </div>
   )
 }
