@@ -5,7 +5,7 @@ import { App } from '../';
 describe('App', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<App/>);
+    wrapper = shallow(<App user={{id: 1, loggedIn: true}}/>);
   });
 
   it('Should render like snapshot', () => {

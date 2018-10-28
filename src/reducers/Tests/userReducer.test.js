@@ -3,8 +3,6 @@ import { userReducer } from '../userReducer';
 describe('userReducer', () => {
   const defaultState = {
     id: null,
-    name: null,
-    email: null,
     loggedIn: false
   }
 
@@ -16,16 +14,12 @@ describe('userReducer', () => {
     const mockAction = {
       type: 'SUCCESSFUL_LOGIN',
       user: {
-        name: 'Tim',
-        email: 'tim@aol.com',
         id: 1
       }
     }
 
     const expected = {
       id: 1,
-      name: 'Tim',
-      email: 'tim@aol.com',
       loggedIn: true
     }
     const newState = userReducer(undefined, mockAction);

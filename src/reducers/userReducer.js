@@ -1,7 +1,6 @@
 const defaultState = {
   id: null,
   loggedIn: false,
-  favorites: []
 }
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {

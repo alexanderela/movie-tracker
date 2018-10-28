@@ -1,3 +1,467 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Should render like snapshot 1`] = `undefined`;
+exports[`Card Should render like snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    movie={
+      Object {
+        "movie": Object {
+          "overview": "Movie Overview",
+          "poster": "Movie Poster",
+          "rating": "Movie Rating",
+          "releaseData": "Movie Release Date",
+          "title": "Movie Title",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="card-inner-wrapper"
+      >
+        <h3
+          className="movie-title"
+        >
+          <div
+            className="movie-rating"
+          >
+            Rating 
+            /10
+          </div>
+          <button
+            className="card-favorite-button
+                fav-btn-inactive"
+            onClick={[Function]}
+          >
+            <img
+              alt=""
+              src="star-clear.svg"
+            />
+          </button>
+        </h3>
+        <p />
+        <p>
+          Opens: 
+        </p>
+        <p>
+          Viewer Rating: 
+        </p>
+      </div>,
+      "className": "Card",
+      "style": Object {
+        "backgroundImage": "url(undefined)",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3
+            className="movie-title"
+          >
+            <div
+              className="movie-rating"
+            >
+              Rating 
+              /10
+            </div>
+            <button
+              className="card-favorite-button
+                fav-btn-inactive"
+              onClick={[Function]}
+            >
+              <img
+                alt=""
+                src="star-clear.svg"
+              />
+            </button>
+          </h3>,
+          <p />,
+          <p>
+            Opens: 
+          </p>,
+          <p>
+            Viewer Rating: 
+          </p>,
+        ],
+        "className": "card-inner-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="movie-rating"
+              >
+                Rating 
+                /10
+              </div>,
+              undefined,
+              <button
+                className="card-favorite-button
+                fav-btn-inactive"
+                onClick={[Function]}
+              >
+                <img
+                  alt=""
+                  src="star-clear.svg"
+                />
+              </button>,
+            ],
+            "className": "movie-title",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Rating ",
+                  undefined,
+                  "/10",
+                ],
+                "className": "movie-rating",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Rating ",
+                undefined,
+                "/10",
+              ],
+              "type": "div",
+            },
+            undefined,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt=""
+                  src="star-clear.svg"
+                />,
+                "className": "card-favorite-button
+                fav-btn-inactive",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "",
+                  "src": "star-clear.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "button",
+            },
+          ],
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Opens: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Opens: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Viewer Rating: ",
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Viewer Rating: ",
+            undefined,
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="card-inner-wrapper"
+        >
+          <h3
+            className="movie-title"
+          >
+            <div
+              className="movie-rating"
+            >
+              Rating 
+              /10
+            </div>
+            <button
+              className="card-favorite-button
+                fav-btn-inactive"
+              onClick={[Function]}
+            >
+              <img
+                alt=""
+                src="star-clear.svg"
+              />
+            </button>
+          </h3>
+          <p />
+          <p>
+            Opens: 
+          </p>
+          <p>
+            Viewer Rating: 
+          </p>
+        </div>,
+        "className": "Card",
+        "style": Object {
+          "backgroundImage": "url(undefined)",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3
+              className="movie-title"
+            >
+              <div
+                className="movie-rating"
+              >
+                Rating 
+                /10
+              </div>
+              <button
+                className="card-favorite-button
+                fav-btn-inactive"
+                onClick={[Function]}
+              >
+                <img
+                  alt=""
+                  src="star-clear.svg"
+                />
+              </button>
+            </h3>,
+            <p />,
+            <p>
+              Opens: 
+            </p>,
+            <p>
+              Viewer Rating: 
+            </p>,
+          ],
+          "className": "card-inner-wrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="movie-rating"
+                >
+                  Rating 
+                  /10
+                </div>,
+                undefined,
+                <button
+                  className="card-favorite-button
+                fav-btn-inactive"
+                  onClick={[Function]}
+                >
+                  <img
+                    alt=""
+                    src="star-clear.svg"
+                  />
+                </button>,
+              ],
+              "className": "movie-title",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Rating ",
+                    undefined,
+                    "/10",
+                  ],
+                  "className": "movie-rating",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Rating ",
+                  undefined,
+                  "/10",
+                ],
+                "type": "div",
+              },
+              undefined,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt=""
+                    src="star-clear.svg"
+                  />,
+                  "className": "card-favorite-button
+                fav-btn-inactive",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "",
+                    "src": "star-clear.svg",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "type": "button",
+              },
+            ],
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Opens: ",
+                undefined,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Opens: ",
+              undefined,
+            ],
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Viewer Rating: ",
+                undefined,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Viewer Rating: ",
+              undefined,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
