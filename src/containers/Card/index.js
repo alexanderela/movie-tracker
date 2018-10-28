@@ -29,7 +29,6 @@ export class Card extends Component {
 	}
 
   handleExpand = () => {
-    console.log('goteeeeem');
     this.setState({
       expanded: !this.state.expanded
     })
