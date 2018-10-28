@@ -1,5 +1,5 @@
 import React from 'react';
-import CardContainer from '../CardContainer';
+import CardContainer from '../../components/CardContainer';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
