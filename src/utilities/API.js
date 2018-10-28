@@ -5,15 +5,20 @@ export const fetchData = async (url) => {
 }
 
 export const loginUser = async (user) => {
-  const response = await fetch('http://localhost:3000/api/users', {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers:{
-      'Content-Type': 'application/json'
-    }
-  });
-  const userData = await response.json();
-  return userData.data;
+  try {
+    const response = await fetch('http://localhost:3000/api/users', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    });
+    const userData = await response.json();
+    return userData.data;
+  }
+  catch(error) {
+    console.log(error.message)
+  }
 }
 
 export const createUser = async (user) => {
@@ -52,6 +57,7 @@ export const addFavorite = async (movie, user) => {
 
 export const removeFavorite = async (movie, user) => {
   try {
+    console.log(movie.id)
     return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
       method: 'DELETE',
       body: JSON.stringify({

@@ -11,6 +11,7 @@ export class Card extends Component {
 	handleFavorite = async (movie) => {
     const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
+    console.log(user)
     if (!user.loggedIn) {
       return undefined;
     }
@@ -23,7 +24,7 @@ export class Card extends Component {
 	}
 
   render() {
-    const { movie, toggleFavorite } = this.props;
+    const { movie, toggleFavorite, user } = this.props;
 
     return(
       <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
@@ -33,7 +34,7 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite ? 'fav-btn-active' : 'fav-btn-inactive'}`}
+                ${movie.favorite && user.loggedIn ? 'fav-btn-active' : 'fav-btn-inactive'}`}
               onClick={() => this.handleFavorite(movie)}>
               <img alt="" src={star} />
             </button>
