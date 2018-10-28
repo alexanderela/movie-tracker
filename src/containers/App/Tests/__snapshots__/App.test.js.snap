@@ -1,9 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Should render like snapshot 1`] = `
+exports[`App Component Should render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
+    movies={
+      Array [
+        Object {
+          "favorite": true,
+          "title": "Movie 1",
+        },
+        Object {
+          "favorite": false,
+          "title": "Movie 2",
+        },
+        Object {
+          "favorite": false,
+          "title": "Movie 3",
+        },
+        Object {
+          "favorite": true,
+          "title": "Movie 4",
+        },
+      ]
+    }
     user={
       Object {
         "id": 1,
