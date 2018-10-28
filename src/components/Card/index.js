@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Card.css';
 import star from '../../images/star-clear.svg';
 import filledStar from '../../images/star.svg';
-import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/userActions';
+import { toggleFavorite, addFavorite, removeFavorite } from '../../actions/movieActions';
 import { connect } from 'react-redux';
 import * as API from '../../utilities/API'
 

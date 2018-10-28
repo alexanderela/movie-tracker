@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setMovies } from '../../actions/movieActions';
 import * as userActions from '../../actions/userActions';
 import * as DataCleaner from '../../utilities/DataCleaner'
 import MainPage from '../MainPage';
@@ -27,7 +28,7 @@ export class App extends Component {
         <Route exact path='/favorites' render={() => {
           if(!loggedIn) {
             alert('Please create an account or login to select favorites')
-            return <Login /> 
+            return <Login />
           } else {
             return <MainPage movies={favorites} getFavorites={this.handleGetFavorites}/>}
           }
@@ -40,7 +41,7 @@ export class App extends Component {
 export const mapStateToProps = ({ user, movies, favorites }) => ({ user, movies, favorites });
 
 export const mapDispatchToProps = (dispatch) => ({
-  setMovies: (movies) => dispatch(userActions.setMovies(movies))
+  setMovies: (movies) => dispatch(setMovies(movies))
 });
 
 
