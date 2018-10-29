@@ -35,12 +35,12 @@ export class Card extends Component {
   }
 
   render() {
-    const { movie, toggleFavorite, user } = this.props;
+    const { movie, user } = this.props;
     const { expanded } = this.state;
 
     return(
 			<div
-        className={expanded ? 'Card expanded-card' : 'Card'}
+				className={expanded ? 'Card' : 'Card card-expanded'}
 				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
         onClick={this.handleExpand}>
         <div className="card-inner-wrapper">
