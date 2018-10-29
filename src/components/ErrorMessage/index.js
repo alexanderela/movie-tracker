@@ -4,10 +4,6 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ErrorMessage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { message, closeError, user } = this.props
 
