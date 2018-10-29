@@ -25,13 +25,15 @@ export class Card extends Component {
     } else {
       addFavorite(movie, user);
     }
-    toggleFavorite(id);
-	}
+      toggleFavorite(id);
+    }
 
-  handleExpand = () => {
-    this.setState({
-      expanded: !this.state.expanded
-    })
+  handleExpand = (e) => {
+    if (!e.target.className.includes('card-favorite-button')) {
+      this.setState({
+        expanded: !this.state.expanded
+      })
+    }
   }
 
   render() {
@@ -52,14 +54,25 @@ export class Card extends Component {
                 ${movie.favorite && user.loggedIn
                   ? 'fav-btn-active'
                   : 'fav-btn-inactive'}`}
-              onClick={() => this.handleFavorite(movie)}
-            >
-              <img alt="" src={movie.favorite ? filledStar : star} />
+              onClick={() => this.handleFavorite(movie)}>
+              <img className="card-favorite-button-image" alt="" src={movie.favorite ? filledStar : star} />
             </button>
           </h3>
-         <p>{movie.overview}</p>
-          <p>Opens: {movie.releaseDate}</p>
-          <p>Viewer Rating: {movie.rating}</p>
+          <div className="expanded-lower-container">
+            <img 
+              src={movie.poster} 
+              alt=""
+              className='poster-image'/>
+            <p className="card-overview">
+              <strong>Description</strong>
+              <br/>
+              {movie.overview}
+            </p>
+            <p className="card-release-date">
+              <strong>Release Date</strong>
+              <br/>
+              {movie.releaseDate}</p>
+          </div>
         </div>
       </div>
     )
