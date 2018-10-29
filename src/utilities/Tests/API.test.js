@@ -59,7 +59,8 @@ describe('API', () => {
   describe('createUser', () => {
     beforeEach(() => {
       window.fetch = jest.fn();
-    })
+    });
+
     it('Should call fetch with the correct arguments', () => {
       const url = 'http://localhost:3000/api/users/new';
       const mockUser = {name: 'Tim', email: 'tim@aol.com', password: 'password'}
@@ -72,6 +73,92 @@ describe('API', () => {
       }
       API.createUser(mockUser);
       expect(window.fetch).toHaveBeenCalledWith(url, mockOptions);
+    });
+  });
+
+  describe('addFavorite', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve({})
+      }));
+    });
+
+    it('Should make a post request with the correct arguments', () => {
+      const url = 'http://localhost:3000/api/users/favorites/new'
+      const mockMovie = {
+        id: 1,
+        title: 'Movie',
+        poster: 'Poster path',
+        releaseDate: '1/1/19',
+        rating: 10,
+        overview: 'A summary'
+      }
+      const mockUser = { id: 1 };
+      const mockOptions = {
+        method: 'POST',
+        body: JSON.stringify({
+          movie_id: mockMovie.id,
+          user_id: mockUser.id,
+          title: mockMovie.title,
+          poster_path: mockMovie.poster,
+          release_date: mockMovie.releaseDate,
+          vote_average: mockMovie.rating,
+          overview: mockMovie.overview
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+      }}
+      API.addFavorite(mockMovie, mockUser);
+      expect(window.fetch).toHaveBeenCalledWith(url, mockOptions);
+    });
+  });
+
+
+  describe('removeFavorite', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn();
+    });
+
+    it('Should make a delete request with the correct arguments', () => {
+      const mockUser = { id: 1 }
+      const mockMovie = { id: 1 }
+      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites/${mockMovie.id}`;
+      const mockOptions = {
+        method: 'DELETE',
+        body: JSON.stringify({
+          movie_id: mockMovie.id,
+          user_id: mockUser.id
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }}
+      API.removeFavorite(mockMovie, mockUser);
+      expect(window.fetch).toHaveBeenCalledWith(url, mockOptions);
+    });
+  });
+
+  describe('getFavorites', () => {
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve({
+          data: ['Favorites', 'Array']
+        })
+      }));
+    });
+
+    it('Should call fetch with correct arguments', () => {
+      const mockUser = { id: 1 };
+      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites`;
+      API.getFavorites(mockUser);
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    it('Should resolve the fetch and return the data key from response', async () => {
+      const mockUser = { id: 1 };
+      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites`;
+      const expected = ['Favorites', 'Array'];
+      const result =  await API.getFavorites(url);
+      expect(result).toEqual(expected);
     });
   });
 });
