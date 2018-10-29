@@ -4,17 +4,15 @@ describe('userActions', () => {
   describe('successfulLogin', () => {
     it('should have a type of SUCCESSFUL_LOGIN and the userData', () => {
       const mockUser = {
+        id: 1,
         email: 'tim@aol.com',
         password: 'password',
         name: 'Tim',
       }
       const expected = {
         type: 'SUCCESSFUL_LOGIN',
-        user: {
-          name: 'Tim',
-          email: 'tim@aol.com',
-        }
-      }
+        id: 1
+     }
 
       const result = userActions.successfulLogin(mockUser);
       expect(result).toEqual(expected);

@@ -1,14 +1,11 @@
 const defaultState = {
   id: null,
   loggedIn: false,
-  favorites: []
 }
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'SUCCESSFUL_LOGIN':
-      return {...action.user, loggedIn: true}
-    case 'SIGN_IN':
-      return defaultState;
+      return {id: action.id, loggedIn: true}
     case 'SIGN_OUT':
       return defaultState;
     default:

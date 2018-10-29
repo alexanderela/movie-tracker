@@ -1,16 +1,8 @@
-export const successfulLogin = (user) => {
-  const newUser = {...user};
-  delete newUser.password
-  return {
+export const successfulLogin = (user) => ({
     type: 'SUCCESSFUL_LOGIN',
-    user: newUser,
-  }
-}
+    id: user.id
+});
 
 export const signOut = () => ({
   type: 'SIGN_OUT'
-})
-
-export const signIn = () => ({
-  type: 'SIGN_IN'
-})
+});
