@@ -48,10 +48,8 @@ html, body, .app {
 
 .ErrorMessage button {
   border-radius: 2px;
-  background-color: #ff3030;
   border: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-  color: #fcfcfc;
   cursor: pointer;
   display: block;
   font-size: 18px;
@@ -63,7 +61,22 @@ html, body, .app {
   width: 24rem;
 }
 
+.home-button-error {
+  background-color: #ff3030;
+  color: #fcfcfc;
+}
+
+.login-button-error {
+  background-color: #d2d2d2;
+  color: #222;
+}
+
 .home-link-error {
   color: #fcfcfc;
+  text-decoration: none;
+}
+
+.login-link-error {
+  color: #222;
   text-decoration: none;
 }
