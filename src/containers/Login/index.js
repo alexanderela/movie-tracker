@@ -5,6 +5,7 @@ import { setFavorites } from '../../actions/movieActions';
 import { successfulLogin } from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
+import { NavLink } from 'react-router-dom';
 
 export class Login extends Component {
   constructor() {
@@ -18,35 +19,53 @@ export class Login extends Component {
     }
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    event.preventDefault();
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    e.preventDefault();
    this.setState({ [name] : value});
   }
 
-  submitLogin = async (event) => {
-    event.preventDefault();
+  submitLogin = async (e) => {
+    e.preventDefault();
     const { email, password } = this.state;
-    const { user, loginUser, setFavorites } = this.props
-
+    const { loginUser, setFavorites } = this.props
     const loginAttempt = await API.loginUser({email, password});
+
     if (loginAttempt) {
       loginUser(loginAttempt);
       const favorites = await API.getFavorites(loginAttempt);
       setFavorites(favorites);
     } else {
       this.setState({error: 'Email and Password did not match'});
+    } 
+  }
+
+  toggleCreate = async (e) => {
+    e.preventDefault();
+    const { create } = this.state;
+    const newUserResponse = await this.newUserResponse(e);
+    console.log(newUserResponse)
+  
+    if (create && newUserResponse.status >= 400) {
+      this.setState({error: 'Email has already been used'})
+      this.clearInputs()
+    } else if (!create || newUserResponse.status <= 400) {
+      this.setState({ create: !create, error: '' });
     }
   }
 
-  toggleCreate = async (event) => {
-    event.preventDefault();
-    const { create, email, password, name } = this.state;
-    if (create) {
-      const message = await API.createUser({email, password, name});
-      this.setState({error: 'Email has already been used'})
-    }
-    this.setState({ create: true});
+  newUserResponse = async (e) => {
+    e.preventDefault()
+    const { email, password, name } = this.state;
+    return await API.createUser({email, password, name});  
+  }
+
+  clearInputs = () => {
+    this.setState({
+      email: '',
+      password: '',
+      name: ''        
+    })   
   }
 
   render() {
@@ -54,7 +73,7 @@ export class Login extends Component {
     return (
       <div className='Login'>
       <form className='Login-form'>
-        <h1> Movie Tracker </h1>
+        <h1 className='Login-header'> Movie Tracker </h1>
         <h3> Login </h3>
         { create ?
             <input
@@ -73,7 +92,7 @@ export class Login extends Component {
         <input
           name='password'
           value={password}
-          type='text'
+          type='password'
           placeholder='Password'
           onChange={this.handleChange}/>
         { !create
@@ -87,7 +106,8 @@ export class Login extends Component {
           className='create-user'
           onClick={this.toggleCreate}>Create User
         </button>
-        { error.length ? <div className="error">{error}</div> : null }
+        { error.length ? <div className='error'>{error}</div> : null }
+        <NavLink to='/' className='home-link'>Home</NavLink>
       </form>
       </div>
     )

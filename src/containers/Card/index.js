@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toggleFavorite } from '../../actions/movieActions';
 import { removeFavorite, addFavorite } from '../../utilities/API';
-import filledStar from '../../images/star.svg';
 import star from '../../images/star-clear.svg';
 import './Card.css';
 
@@ -23,7 +22,7 @@ export class Card extends Component {
 	}
 
   render() {
-    const { movie, toggleFavorite } = this.props;
+    const { movie, user } = this.props;
 
     return(
       <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
@@ -33,7 +32,7 @@ export class Card extends Component {
             {movie.title}
             <button
               className={`card-favorite-button
-                ${movie.favorite ? 'fav-btn-active' : 'fav-btn-inactive'}`}
+                ${movie.favorite && user.loggedIn ? 'fav-btn-active' : 'fav-btn-inactive'}`}
               onClick={() => this.handleFavorite(movie)}>
               <img alt="" src={star} />
             </button>
