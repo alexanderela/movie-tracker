@@ -5,7 +5,7 @@ import { setFavorites } from '../../actions/movieActions';
 import { successfulLogin } from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export class Login extends Component {
   constructor() {
@@ -37,12 +37,12 @@ export class Login extends Component {
       setFavorites(favorites);
     } else {
       this.setState({error: 'Email and Password did not match'});
-    }
+    } 
   }
 
   toggleCreate = async (e) => {
     e.preventDefault();
-    const { create, email, password, name } = this.state;
+    const { create } = this.state;
     const newUserResponse = await this.newUserResponse(e);
     console.log(newUserResponse)
   
@@ -73,7 +73,7 @@ export class Login extends Component {
     return (
       <div className='Login'>
       <form className='Login-form'>
-        <h1> Movie Tracker </h1>
+        <h1 className='Login-header'> Movie Tracker </h1>
         <h3> Login </h3>
         { create ?
             <input
@@ -92,7 +92,7 @@ export class Login extends Component {
         <input
           name='password'
           value={password}
-          type='text'
+          type='password'
           placeholder='Password'
           onChange={this.handleChange}/>
         { !create
@@ -106,7 +106,8 @@ export class Login extends Component {
           className='create-user'
           onClick={this.toggleCreate}>Create User
         </button>
-        { error.length ? <div className="error">{error}</div> : null }
+        { error.length ? <div className='error'>{error}</div> : null }
+        <NavLink to='/' className='home-link'>Home</NavLink>
       </form>
       </div>
     )
