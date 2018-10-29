@@ -56,12 +56,21 @@ export class Card extends Component {
               <img alt="" src={movie.favorite ? filledStar : star} />
             </button>
           </h3>
-          {/* <img  */}
-            {/* src={movie.poster}  */}
-            {/* className='poster-image'/> */}
-          <p>{movie.overview}</p>
-          <p>Opens: {movie.releaseDate}</p>
-          <p>Viewer Rating: {movie.rating}</p>
+          <div className="expanded-lower-container">
+            <img 
+              src={movie.poster} 
+              alt=""
+              className='poster-image'/>
+            <p className="card-overview">
+              <strong>Description:</strong>
+              <br/>
+              {movie.overview}
+            </p>
+            <p className="card-release-date">
+              <strong>Release Date:</strong>
+              <br/>
+              {movie.releaseDate}</p>
+          </div>
         </div>
       </div>
     )
