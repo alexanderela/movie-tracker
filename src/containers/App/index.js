@@ -28,8 +28,9 @@ export class App extends Component {
   }
 
   enableError = () => {
-    console.log('enableError hooked up')
-    if (!this.props.user.loggedIn) {
+    const { loggedIn } = this.props.user
+    const filteredMovies = this.filterFavorites()
+    if (!loggedIn || !filteredMovies.length) {
       this.toggleError()
     }
   }
@@ -47,13 +48,30 @@ export class App extends Component {
     return (
       <div className='App'>
         <Switch>
-          <Route exact path='/' render={() => <MainPage movies={movies} enableError={this.enableError}/>}/>
+          <Route exact path='/' render={() => {
+            return <MainPage 
+              movies={movies} 
+              enableError={this.enableError}/>
+            }
+          }/>
           <Route exact path='/login' render={() => loggedIn ?
             <Redirect to='/'/> : <Login/>}/>
-          <Route exact path='/favorites' render={() => (!loggedIn && showError) 
-            ? <ErrorMessage closeError={this.toggleError}/>
-            : <MainPage movies={this.filterFavorites()} enableError={this.enableError}/>}
-          />
+          <Route exact path='/favorites' render={() => {
+            if(!loggedIn && showError) {
+              return <ErrorMessage 
+                        closeError={this.toggleError} 
+                        message={'Please login or create an account to add/view favorites.'}
+              />
+            } else if (loggedIn && showError){
+              return <ErrorMessage 
+                        closeError={this.toggleError} 
+                        message={'You currently have no favorites selected.'}/>                
+            } else {
+              return <MainPage 
+                        movies={this.filterFavorites()} 
+                        enableError={this.enableError}/>}
+            }
+          }/>
         <Route render={() => <MainPage movies={movies}/>}/>
       </Switch>
       </div>

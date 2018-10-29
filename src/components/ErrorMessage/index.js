@@ -12,7 +12,7 @@ class ErrorMessage extends Component {
       <div className='ErrorMessage'>
         <div className='ErrorMessage_inner'>
           <h1 className='Login-header'> Movie Tracker </h1>
-          <p>Please login or create an account to add/view favorites.</p>
+          <p>{this.props.message}</p>
           <button 
             onClick={this.props.closeError}>
             <NavLink to='/' className='home-link-error'>Home
