@@ -6,7 +6,7 @@ import * as userActions from '../../actions/userActions';
 import * as movieActions from '../../actions/movieActions';
 import redLogo from '../../images/film-red.svg';
 
-export const MainPage = ({ user, signOut, movies, clearFavorites }) => {
+export const MainPage = ({ user, signOut, movies, clearFavorites, enableError }) => {
   const handleSignOut = (event) => {
     event.preventDefault();
     clearFavorites(movies);
@@ -16,7 +16,7 @@ export const MainPage = ({ user, signOut, movies, clearFavorites }) => {
   return (
     <div className='MainPage'>
       <div className="main-header" >
-        <button className='all-favorites'>
+        <button className='all-favorites' onClick={enableError}>
           <NavLink
             to='/favorites'
             className='nav-link'>Favorites
