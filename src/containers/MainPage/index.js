@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 import * as movieActions from '../../actions/movieActions';
 import redLogo from '../../images/film-red.svg';
-import * as DataCleaner from '../../utilities/DataCleaner'
 
-export const MainPage = ({ user, signOut, movies, toggleFavorite, clearFavorites }) => {
-  const handleSignOut = async (event) => {
+export const MainPage = ({ user, signOut, movies, clearFavorites }) => {
+  const handleSignOut = (event) => {
     event.preventDefault();
     clearFavorites(movies);
     signOut();
@@ -53,7 +52,6 @@ export const MainPage = ({ user, signOut, movies, toggleFavorite, clearFavorites
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(userActions.signOut()),
-  toggleFavorite: (movieId) => dispatch(movieActions.toggleFavorite(movieId)),
   clearFavorites: (movies) => dispatch(movieActions.clearFavorites(movies))
 });
 

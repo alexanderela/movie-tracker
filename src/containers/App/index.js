@@ -3,12 +3,10 @@ import { withRouter } from 'react-router';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/movieActions';
-import * as userActions from '../../actions/userActions';
 import * as DataCleaner from '../../utilities/DataCleaner'
 import MainPage from '../MainPage';
 import Login from '../Login';
 import './App.css';
-import * as API from '../../utilities/API';
 
 export class App extends Component {
   async componentDidMount() {
@@ -22,7 +20,7 @@ export class App extends Component {
 
   render() {
     const { loggedIn } = this.props.user;
-    const { movies, favorites } = this.props
+    const { movies } = this.props
 
     return (
       <div className='App'>

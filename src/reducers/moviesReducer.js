@@ -1,7 +1,6 @@
 export const moviesReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_MOVIES':
-      console.log(action.movies)
       return [...state, ...action.movies];
 		case 'TOGGLE_FAVORITE':
       return state.map(movie => {

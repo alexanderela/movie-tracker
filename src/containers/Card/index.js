@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toggleFavorite } from '../../actions/movieActions';
 import { removeFavorite, addFavorite } from '../../utilities/API';
-import filledStar from '../../images/star.svg';
 import star from '../../images/star-clear.svg';
 import './Card.css';
 
@@ -23,7 +22,7 @@ export class Card extends Component {
 	}
 
   render() {
-    const { movie, toggleFavorite, user } = this.props;
+    const { movie, user } = this.props;
 
     return(
       <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>

@@ -5,6 +5,7 @@ import { setFavorites } from '../../actions/movieActions';
 import { successfulLogin } from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 export class Login extends Component {
   constructor() {
@@ -18,18 +19,18 @@ export class Login extends Component {
     }
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    event.preventDefault();
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    e.preventDefault();
    this.setState({ [name] : value});
   }
 
-  submitLogin = async (event) => {
-    event.preventDefault();
+  submitLogin = async (e) => {
+    e.preventDefault();
     const { email, password } = this.state;
-    const { user, loginUser, setFavorites } = this.props
-
+    const { loginUser, setFavorites } = this.props
     const loginAttempt = await API.loginUser({email, password});
+
     if (loginAttempt) {
       loginUser(loginAttempt);
       const favorites = await API.getFavorites(loginAttempt);
@@ -39,14 +40,32 @@ export class Login extends Component {
     }
   }
 
-  toggleCreate = async (event) => {
-    event.preventDefault();
+  toggleCreate = async (e) => {
+    e.preventDefault();
     const { create, email, password, name } = this.state;
-    if (create) {
-      const message = await API.createUser({email, password, name});
+    const newUserResponse = await this.newUserResponse(e);
+    console.log(newUserResponse)
+  
+    if (create && newUserResponse.status >= 400) {
       this.setState({error: 'Email has already been used'})
+      this.clearInputs()
+    } else if (!create || newUserResponse.status <= 400) {
+      this.setState({ create: !create, error: '' });
     }
-    this.setState({ create: true});
+  }
+
+  newUserResponse = async (e) => {
+    e.preventDefault()
+    const { email, password, name } = this.state;
+    return await API.createUser({email, password, name});  
+  }
+
+  clearInputs = () => {
+    this.setState({
+      email: '',
+      password: '',
+      name: ''        
+    })   
   }
 
   render() {
