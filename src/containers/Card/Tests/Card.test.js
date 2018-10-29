@@ -19,4 +19,20 @@ describe('Card', () => {
   it('Should render like snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('returns undefined upon invocation of handleFavorite if user is not logged in', () => {
+
+  })
+
+  it('invokes addFavorite upon invocation of handleFavorite if favorites exist', () => {
+    
+  })
+
+  it('invokes addFavorite upon invocation of handleFavorite if favorites dont exist', () => {
+    
+  })
+
+  it('', () => {
+    
+  })
 });

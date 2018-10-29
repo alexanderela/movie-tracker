@@ -42,7 +42,7 @@ export class App extends Component {
 
   render() {
     const { loggedIn } = this.props.user;
-    const { movies } = this.props
+    const { movies, user } = this.props
     const { showError } = this.state
 
     return (
@@ -61,15 +61,21 @@ export class App extends Component {
               return <ErrorMessage 
                         closeError={this.toggleError} 
                         message={'Please login or create an account to add/view favorites.'}
-              />
+                        user={user}
+                        />
             } else if (loggedIn && showError){
               return <ErrorMessage 
                         closeError={this.toggleError} 
-                        message={'You currently have no favorites selected.'}/>                
+                        message={'You currently have no favorites selected.'}
+                        user={user}
+                        />                
             } else {
               return <MainPage 
                         movies={this.filterFavorites()} 
-                        enableError={this.enableError}/>}
+                        enableError={this.enableError}
+                        user={user}
+                        />
+                    }
             }
           }/>
         <Route render={() => <MainPage movies={movies}/>}/>
