@@ -48,8 +48,8 @@ export class App extends Component {
       <div className='App'>
         <Switch>
           <Route exact path='/' render={() => {
-            return <MainPage 
-              movies={movies} 
+            return <MainPage
+              movies={movies}
               enableError={this.enableError}/>
             }
           }/>
@@ -57,20 +57,20 @@ export class App extends Component {
             <Redirect to='/'/> : <Login/>}/>
           <Route exact path='/favorites' render={() => {
             if(!loggedIn && showError) {
-              return <ErrorMessage 
-                        closeError={this.toggleError} 
+              return <ErrorMessage
+                        closeError={this.toggleError}
                         message={'Please login or create an account to add/view favorites.'}
                         user={user}
                         />
             } else if (loggedIn && showError){
-              return <ErrorMessage 
-                        closeError={this.toggleError} 
+              return <ErrorMessage
+                        closeError={this.toggleError}
                         message={'You currently have no favorites selected.'}
                         user={user}
-                        />                
+                        />
             } else {
-              return <MainPage 
-                        movies={this.filterFavorites()} 
+              return <MainPage
+                        movies={this.filterFavorites()}
                         enableError={this.enableError}
                         user={user}
                         />
@@ -92,7 +92,7 @@ export const mapDispatchToProps = (dispatch) => ({
 
 App.propTypes = {
   user: PropTypes.object.isRequired,
-  movies: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired,
   setMovies: PropTypes.func.isRequired
 }
 

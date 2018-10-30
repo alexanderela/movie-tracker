@@ -5,8 +5,8 @@ import { shallow } from 'enzyme';
 describe('ErrorMessage', () => {
 	let wrapper;
 	beforeEach(() => {
-		const closeError = jest.fn
-		wrapper = shallow(<ErrorMessage closeError={closeError}/>)
+    const mockUser = { id: 1, loggedIn: true }
+		wrapper = shallow(<ErrorMessage closeError={jest.fn()} user={mockUser}/>)
 	});
 
 	it('Should render like snapshot', () => {

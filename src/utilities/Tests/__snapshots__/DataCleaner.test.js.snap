@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data Cleaner returnMovieData Should clean movie objects 1`] = `
+Array [
+  Object {
+    "backdrop": "https://image.tmdb.org/t/p/w500/url",
+    "favorite": false,
+    "id": 112432,
+    "overview": "",
+    "poster": "https://image.tmdb.org/t/p/w500/url",
+    "rating": 5,
+    "releaseDate": "05/13/2018",
+    "title": "A movie",
+  },
+  Object {
+    "backdrop": "https://image.tmdb.org/t/p/w500/url",
+    "favorite": false,
+    "id": 11423,
+    "overview": "",
+    "poster": "https://image.tmdb.org/t/p/w500/url",
+    "rating": undefined,
+    "releaseDate": "07/08/2018",
+    "title": "Another movie",
+  },
+]
+`;

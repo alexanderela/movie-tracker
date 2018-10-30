@@ -5,35 +5,25 @@ export const fetchData = async (url) => {
 }
 
 export const loginUser = async (user) => {
-  try {
-    const response = await fetch('http://localhost:3000/api/users', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers:{
-        'Content-Type': 'application/json'
-      }
-    });
-    const userData = await response.json();
-    return userData.data;
-  }
-  catch(error) {
-    console.log(error.message)
-  }
+  const response = await fetch('http://localhost:3000/api/users', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  });
+  const userData = await response.json();
+  return userData.data;
 }
 
 export const createUser = async (user) => {
-  try {
-    return fetch('http://localhost:3000/api/users/new', {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers:{
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-  catch(error) {
-    console.log(error.message)
-  }
+  return fetch('http://localhost:3000/api/users/new', {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers:{
+      'Content-Type': 'application/json'
+    }
+  });
 }
 
 export const addFavorite = async (movie, user) => {
@@ -56,21 +46,16 @@ export const addFavorite = async (movie, user) => {
 }
 
 export const removeFavorite = async (movie, user) => {
-  try {
-    return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
-      method: 'DELETE',
-      body: JSON.stringify({
-        movie_id: movie.id,
-        user_id: user.id,
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-  catch (error) {
-    console.log(error.message)
-  }
+  return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      movie_id: movie.id,
+      user_id: user.id,
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }
 
 export const getFavorites = async (user) => {
