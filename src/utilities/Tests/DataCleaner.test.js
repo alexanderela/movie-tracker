@@ -1,5 +1,5 @@
 import * as DataCleaner from '../DataCleaner';
-import * as API from '../API'
+import * as API from '../API';
 jest.mock('../API');
 
 describe('Data Cleaner', () => {

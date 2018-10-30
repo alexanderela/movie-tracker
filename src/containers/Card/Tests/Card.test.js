@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Card } from '../';
+import * as API from '../../../utilities/API';
+jest.mock('../../../utilities/API');
 
 describe('Card', () => {
   let wrapper;
@@ -24,7 +26,11 @@ describe('Card', () => {
       }}
     mockUser = {id: 31, loggedIn: false}
     toggleFavorite = jest.fn()
-    wrapper = shallow(<Card movie={mockMovie} user={mockUser} toggleFavorite={toggleFavorite}/>);
+    wrapper = shallow(<Card 
+                        movie={mockMovie} 
+                        user={mockUser} 
+                        toggleFavorite={toggleFavorite}
+                      />);
   });
 
   it('Should render like snapshot', () => {
@@ -37,20 +43,38 @@ describe('Card', () => {
     expect(received).toEqual(expected)
   })
 
-  xit('invokes addFavorite upon invocation of handleFavorite if favorites exist', async () => {
-    mockMovie = [{title: 'the departed', favorite: true}, {title: 'fargo', favorite: true}]
-    const addFavorite = jest.fn()
-    const spy = jest.spyOn(wrapper.instance(), 'addFavorite')
+  it('invokes removeFavorite upon invocation of handleFavorite if favorites exist', async () => {
+    mockUser = {id: 31, loggedIn: true}
+    mockMovie = {title: 'the departed', favorite: true}  
+    wrapper = shallow(<Card 
+                        movie={mockMovie} 
+                        user={mockUser} 
+                        toggleFavorite={toggleFavorite}
+                      />);
     await wrapper.instance().handleFavorite(mockMovie)
-    expect(spy).toHaveBeenCalled()    
+    expect(API.removeFavorite).toHaveBeenCalled()   
   })
 
-  xit('invokes addFavorite upon invocation of handleFavorite if favorites dont exist', () => {
-    mockMovie = [{title: 'the departed', favorite: false}, {title: 'fargo', favorite: false}]    
+  it('invokes addFavorite upon invocation of handleFavorite if favorites dont exist', async () => {
+    mockUser = {id: 31, loggedIn: true}
+    mockMovie = {title: 'the departed', favorite: false}    
+    wrapper = shallow(<Card 
+                        movie={mockMovie} 
+                        user={mockUser} 
+                        toggleFavorite={toggleFavorite}
+                      />);
+    await wrapper.instance().handleFavorite(mockMovie)  
+    expect(API.addFavorite).toHaveBeenCalled()
   })
 
-  xit('invokes toggleFavorite upon invocation of handleFavorite', async () => {
+  it('invokes toggleFavorite upon invocation of handleFavorite', async () => {
+    mockUser = {id: 31, loggedIn: true}
+    wrapper = shallow(<Card 
+                        movie={mockMovie} 
+                        user={mockUser} 
+                        toggleFavorite={toggleFavorite}
+                      />);
     await wrapper.instance().handleFavorite(mockMovie)
-    expect(toggleFavorite).toHaveBeenCalled()    
+    expect(wrapper.instance().props.toggleFavorite).toHaveBeenCalled()    
   })
 });

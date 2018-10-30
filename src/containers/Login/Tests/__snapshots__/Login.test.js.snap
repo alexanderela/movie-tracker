@@ -32,6 +32,13 @@ ShallowWrapper {
            Login 
         </h3>
         <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Name"
+          type="text"
+          value=""
+        />
+        <input
           name="email"
           onChange={[Function]}
           placeholder="Email address"
@@ -45,13 +52,6 @@ ShallowWrapper {
           type="password"
           value=""
         />
-        <button
-          className="login-button"
-          onClick={[Function]}
-          type="submit"
-        >
-          Login
-        </button>
         <button
           className="create-user"
           onClick={[Function]}
@@ -84,7 +84,13 @@ ShallowWrapper {
           <h3>
              Login 
           </h3>,
-          null,
+          <input
+            name="name"
+            onChange={[Function]}
+            placeholder="Name"
+            type="text"
+            value=""
+          />,
           <input
             name="email"
             onChange={[Function]}
@@ -99,13 +105,7 @@ ShallowWrapper {
             type="password"
             value=""
           />,
-          <button
-            className="login-button"
-            onClick={[Function]}
-            type="submit"
-          >
-            Login
-          </button>,
+          null,
           <button
             className="create-user"
             onClick={[Function]}
@@ -149,7 +149,21 @@ ShallowWrapper {
           "rendered": " Login ",
           "type": "h3",
         },
-        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "name": "name",
+            "onChange": [Function],
+            "placeholder": "Name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -180,20 +194,7 @@ ShallowWrapper {
           "rendered": null,
           "type": "input",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Login",
-            "className": "login-button",
-            "onClick": [Function],
-            "type": "submit",
-          },
-          "ref": null,
-          "rendered": "Login",
-          "type": "button",
-        },
+        null,
         Object {
           "instance": null,
           "key": undefined,
@@ -246,6 +247,13 @@ ShallowWrapper {
              Login 
           </h3>
           <input
+            name="name"
+            onChange={[Function]}
+            placeholder="Name"
+            type="text"
+            value=""
+          />
+          <input
             name="email"
             onChange={[Function]}
             placeholder="Email address"
@@ -259,13 +267,6 @@ ShallowWrapper {
             type="password"
             value=""
           />
-          <button
-            className="login-button"
-            onClick={[Function]}
-            type="submit"
-          >
-            Login
-          </button>
           <button
             className="create-user"
             onClick={[Function]}
@@ -298,7 +299,13 @@ ShallowWrapper {
             <h3>
                Login 
             </h3>,
-            null,
+            <input
+              name="name"
+              onChange={[Function]}
+              placeholder="Name"
+              type="text"
+              value=""
+            />,
             <input
               name="email"
               onChange={[Function]}
@@ -313,13 +320,7 @@ ShallowWrapper {
               type="password"
               value=""
             />,
-            <button
-              className="login-button"
-              onClick={[Function]}
-              type="submit"
-            >
-              Login
-            </button>,
+            null,
             <button
               className="create-user"
               onClick={[Function]}
@@ -363,7 +364,21 @@ ShallowWrapper {
             "rendered": " Login ",
             "type": "h3",
           },
-          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "name",
+              "onChange": [Function],
+              "placeholder": "Name",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -394,20 +409,7 @@ ShallowWrapper {
             "rendered": null,
             "type": "input",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Login",
-              "className": "login-button",
-              "onClick": [Function],
-              "type": "submit",
-            },
-            "ref": null,
-            "rendered": "Login",
-            "type": "button",
-          },
+          null,
           Object {
             "instance": null,
             "key": undefined,
