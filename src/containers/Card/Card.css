@@ -147,9 +147,9 @@
 	box-shadow: 0 0 3rem #666;
 	border-radius: 5px;
 	display: inline;
-	height: 70%;
-	margin: 4rem 3rem;
-	width: auto;
+	height: 24rem;
+	margin-top: 3rem;
+	width: 16rem;
 }
 
 .expanded-card p {
@@ -176,10 +176,14 @@
   height: 32px;
 }
 
+.lower-middle-expanded {
+	text-align: justify;
+	margin-top: 2rem;
+	width: 45%;
+}
+
 .card-overview {
 	font-size: 2rem;
-	text-align: justify;
-	width: 45%;
 }
 
 .card-release-date {
@@ -192,6 +196,11 @@
 @media screen and (max-width: 1600px) {
   .Card {
 		height: 17rem;
+	}
+
+	.movie-title {
+		position: relative;
+		bottom: 9px;
 	}
 
 	.card-favorite-button {
@@ -213,9 +222,7 @@
 	}
 
 	.expanded-card .poster-image {
-		height: unset;
-		margin: 4rem 0;
-		width: 10rem;
+		margin: 0;
 	}
 }
 
