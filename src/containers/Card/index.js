@@ -19,6 +19,7 @@ export class Card extends Component {
 	handleFavorite = async (movie) => {
     const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
+
     if (!user.loggedIn) {
       return undefined;
     }
@@ -116,6 +117,8 @@ export const mapDispatchToProps = (dispatch) => ({
 
 Card.propTypes = {
   movie: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  toggleFavorite: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

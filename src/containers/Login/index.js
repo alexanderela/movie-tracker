@@ -6,6 +6,7 @@ import { successfulLogin } from '../../actions/userActions';
 import './Login.css';
 import * as API from '../../utilities/API';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class Login extends Component {
   constructor() {
@@ -118,5 +119,11 @@ const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(successfulLogin(user)),
   setFavorites: (favoriteMovies) => dispatch(setFavorites(favoriteMovies))
 });
+
+Login.propTypes = {
+  user: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  setFavorites: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

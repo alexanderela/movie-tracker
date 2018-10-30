@@ -8,6 +8,7 @@ import MainPage from '../MainPage';
 import Login from '../Login';
 import './App.css';
 import ErrorMessage from '../../components/ErrorMessage';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   constructor() {
@@ -88,5 +89,11 @@ export const mapStateToProps = ({ user, movies }) => ({ user, movies });
 export const mapDispatchToProps = (dispatch) => ({
   setMovies: (movies) => dispatch(setMovies(movies))
 });
+
+App.propTypes = {
+  user: PropTypes.object.isRequired,
+  movies: PropTypes.object.isRequired,
+  setMovies: PropTypes.func.isRequired
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
