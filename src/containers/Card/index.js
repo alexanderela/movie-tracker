@@ -19,6 +19,7 @@ export class Card extends Component {
 	handleFavorite = async (movie) => {
     const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
+
     if (!user.loggedIn) {
       return undefined;
     }
