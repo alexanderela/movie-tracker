@@ -69,16 +69,22 @@ ShallowWrapper {
           <div
             className="header-title"
           >
-            <img
-              alt=""
-              className="main-logo"
-              src="film-red.svg"
-            />
-            <h3
-              className="header-text"
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              to="/"
             >
-              MovieTracker
-            </h3>
+              <img
+                alt=""
+                className="main-logo"
+                src="film-red.svg"
+              />
+              <h3
+                className="header-text"
+              >
+                MovieTracker
+              </h3>
+            </NavLink>
           </div>
           <button
             className="sign-out"
@@ -149,16 +155,22 @@ ShallowWrapper {
             <div
               className="header-title"
             >
-              <img
-                alt=""
-                className="main-logo"
-                src="film-red.svg"
-              />
-              <h3
-                className="header-text"
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                to="/"
               >
-                MovieTracker
-              </h3>
+                <img
+                  alt=""
+                  className="main-logo"
+                  src="film-red.svg"
+                />
+                <h3
+                  className="header-text"
+                >
+                  MovieTracker
+                </h3>
+              </NavLink>
             </div>,
             <button
               className="sign-out"
@@ -217,48 +229,76 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
+              "children": <NavLink
+                activeClassName="active"
+                aria-current="page"
+                to="/"
+              >
                 <img
                   alt=""
                   className="main-logo"
                   src="film-red.svg"
-                />,
+                />
                 <h3
                   className="header-text"
                 >
                   MovieTracker
-                </h3>,
-              ],
+                </h3>
+              </NavLink>,
               "className": "header-title",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "alt": "",
-                  "className": "main-logo",
-                  "src": "film-red.svg",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "img",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": Array [
+                  <img
+                    alt=""
+                    className="main-logo"
+                    src="film-red.svg"
+                  />,
+                  <h3
+                    className="header-text"
+                  >
+                    MovieTracker
+                  </h3>,
+                ],
+                "to": "/",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "MovieTracker",
-                  "className": "header-text",
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "",
+                    "className": "main-logo",
+                    "src": "film-red.svg",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
                 },
-                "ref": null,
-                "rendered": "MovieTracker",
-                "type": "h3",
-              },
-            ],
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "MovieTracker",
+                    "className": "header-text",
+                  },
+                  "ref": null,
+                  "rendered": "MovieTracker",
+                  "type": "h3",
+                },
+              ],
+              "type": [Function],
+            },
             "type": "div",
           },
           Object {
@@ -369,16 +409,22 @@ ShallowWrapper {
             <div
               className="header-title"
             >
-              <img
-                alt=""
-                className="main-logo"
-                src="film-red.svg"
-              />
-              <h3
-                className="header-text"
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                to="/"
               >
-                MovieTracker
-              </h3>
+                <img
+                  alt=""
+                  className="main-logo"
+                  src="film-red.svg"
+                />
+                <h3
+                  className="header-text"
+                >
+                  MovieTracker
+                </h3>
+              </NavLink>
             </div>
             <button
               className="sign-out"
@@ -449,16 +495,22 @@ ShallowWrapper {
               <div
                 className="header-title"
               >
-                <img
-                  alt=""
-                  className="main-logo"
-                  src="film-red.svg"
-                />
-                <h3
-                  className="header-text"
+                <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/"
                 >
-                  MovieTracker
-                </h3>
+                  <img
+                    alt=""
+                    className="main-logo"
+                    src="film-red.svg"
+                  />
+                  <h3
+                    className="header-text"
+                  >
+                    MovieTracker
+                  </h3>
+                </NavLink>
               </div>,
               <button
                 className="sign-out"
@@ -517,48 +569,76 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
+                "children": <NavLink
+                  activeClassName="active"
+                  aria-current="page"
+                  to="/"
+                >
                   <img
                     alt=""
                     className="main-logo"
                     src="film-red.svg"
-                  />,
+                  />
                   <h3
                     className="header-text"
                   >
                     MovieTracker
-                  </h3>,
-                ],
+                  </h3>
+                </NavLink>,
                 "className": "header-title",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "alt": "",
-                    "className": "main-logo",
-                    "src": "film-red.svg",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "img",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "aria-current": "page",
+                  "children": Array [
+                    <img
+                      alt=""
+                      className="main-logo"
+                      src="film-red.svg"
+                    />,
+                    <h3
+                      className="header-text"
+                    >
+                      MovieTracker
+                    </h3>,
+                  ],
+                  "to": "/",
                 },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "MovieTracker",
-                    "className": "header-text",
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "",
+                      "className": "main-logo",
+                      "src": "film-red.svg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
                   },
-                  "ref": null,
-                  "rendered": "MovieTracker",
-                  "type": "h3",
-                },
-              ],
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "MovieTracker",
+                      "className": "header-text",
+                    },
+                    "ref": null,
+                    "rendered": "MovieTracker",
+                    "type": "h3",
+                  },
+                ],
+                "type": [Function],
+              },
               "type": "div",
             },
             Object {

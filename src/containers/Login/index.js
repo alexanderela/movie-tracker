@@ -38,14 +38,14 @@ export class Login extends Component {
       setFavorites(favorites);
     } else {
       this.setState({error: 'Email and Password did not match'});
-    } 
+    }
   }
 
   toggleCreate = async (e) => {
     e.preventDefault();
     const { create } = this.state;
     const newUserResponse = await this.newUserResponse(e);
-  
+
     if (create && newUserResponse.status >= 400) {
       this.setState({error: 'Email has already been used'})
       this.clearInputs()
@@ -57,15 +57,15 @@ export class Login extends Component {
   newUserResponse = async (e) => {
     e.preventDefault()
     const { email, password, name } = this.state;
-    return await API.createUser({email, password, name});  
+    return await API.createUser({email, password, name});
   }
 
   clearInputs = () => {
     this.setState({
       email: '',
       password: '',
-      name: ''        
-    })   
+      name: ''
+    })
   }
 
   render() {
@@ -121,7 +121,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   loginUser: PropTypes.func.isRequired,
   setFavorites: PropTypes.func.isRequired
 }

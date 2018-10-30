@@ -4,7 +4,13 @@ exports[`ErrorMessage Should render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ErrorMessage
-    closeError={[Function]}
+    closeError={[MockFunction]}
+    user={
+      Object {
+        "id": 1,
+        "loggedIn": true,
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -30,7 +36,7 @@ ShallowWrapper {
         <p />
         <button
           className="home-button-error"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           <NavLink
             activeClassName="active"
@@ -39,19 +45,6 @@ ShallowWrapper {
             to="/"
           >
             Home
-          </NavLink>
-        </button>
-        <button
-          className="login-button-error"
-          onClick={[Function]}
-        >
-          <NavLink
-            activeClassName="active"
-            aria-current="page"
-            className="login-link-error"
-            to="/login"
-          >
-            Login/Create Account
           </NavLink>
         </button>
       </div>,
@@ -72,7 +65,7 @@ ShallowWrapper {
           <p />,
           <button
             className="home-button-error"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             <NavLink
               activeClassName="active"
@@ -83,19 +76,7 @@ ShallowWrapper {
               Home
             </NavLink>
           </button>,
-          <button
-            className="login-button-error"
-            onClick={[Function]}
-          >
-            <NavLink
-              activeClassName="active"
-              aria-current="page"
-              className="login-link-error"
-              to="/login"
-            >
-              Login/Create Account
-            </NavLink>
-          </button>,
+          false,
         ],
         "className": "ErrorMessage_inner",
       },
@@ -138,7 +119,7 @@ ShallowWrapper {
               Home
             </NavLink>,
             "className": "home-button-error",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           "ref": null,
           "rendered": Object {
@@ -158,40 +139,7 @@ ShallowWrapper {
           },
           "type": "button",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <NavLink
-              activeClassName="active"
-              aria-current="page"
-              className="login-link-error"
-              to="/login"
-            >
-              Login/Create Account
-            </NavLink>,
-            "className": "login-button-error",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "activeClassName": "active",
-              "aria-current": "page",
-              "children": "Login/Create Account",
-              "className": "login-link-error",
-              "to": "/login",
-            },
-            "ref": null,
-            "rendered": "Login/Create Account",
-            "type": [Function],
-          },
-          "type": "button",
-        },
+        false,
       ],
       "type": "div",
     },
@@ -214,7 +162,7 @@ ShallowWrapper {
           <p />
           <button
             className="home-button-error"
-            onClick={[Function]}
+            onClick={[MockFunction]}
           >
             <NavLink
               activeClassName="active"
@@ -223,19 +171,6 @@ ShallowWrapper {
               to="/"
             >
               Home
-            </NavLink>
-          </button>
-          <button
-            className="login-button-error"
-            onClick={[Function]}
-          >
-            <NavLink
-              activeClassName="active"
-              aria-current="page"
-              className="login-link-error"
-              to="/login"
-            >
-              Login/Create Account
             </NavLink>
           </button>
         </div>,
@@ -256,7 +191,7 @@ ShallowWrapper {
             <p />,
             <button
               className="home-button-error"
-              onClick={[Function]}
+              onClick={[MockFunction]}
             >
               <NavLink
                 activeClassName="active"
@@ -267,19 +202,7 @@ ShallowWrapper {
                 Home
               </NavLink>
             </button>,
-            <button
-              className="login-button-error"
-              onClick={[Function]}
-            >
-              <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="login-link-error"
-                to="/login"
-              >
-                Login/Create Account
-              </NavLink>
-            </button>,
+            false,
           ],
           "className": "ErrorMessage_inner",
         },
@@ -322,7 +245,7 @@ ShallowWrapper {
                 Home
               </NavLink>,
               "className": "home-button-error",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             "ref": null,
             "rendered": Object {
@@ -342,40 +265,7 @@ ShallowWrapper {
             },
             "type": "button",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <NavLink
-                activeClassName="active"
-                aria-current="page"
-                className="login-link-error"
-                to="/login"
-              >
-                Login/Create Account
-              </NavLink>,
-              "className": "login-button-error",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "activeClassName": "active",
-                "aria-current": "page",
-                "children": "Login/Create Account",
-                "className": "login-link-error",
-                "to": "/login",
-              },
-              "ref": null,
-              "rendered": "Login/Create Account",
-              "type": [Function],
-            },
-            "type": "button",
-          },
+          false,
         ],
         "type": "div",
       },

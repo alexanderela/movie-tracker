@@ -60,10 +60,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 MainPage.propTypes = {
   user: PropTypes.object.isRequired,
-  movies: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired,
   signOut: PropTypes.func.isRequired,
   clearFavorites: PropTypes.func.isRequired,
-  enableError: PropTypes.func.isRequired
+  enableError: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
