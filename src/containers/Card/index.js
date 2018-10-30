@@ -58,7 +58,7 @@ export class Card extends Component {
 
     return(
 			<div
-				className={expanded ? 'Card' : 'Card card-expanded'}
+				className={!expanded ? 'Card' : 'Card expanded-card'}
 				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
         onClick={this.handleExpand}>
         <div className="expanded-background"></div>
@@ -70,7 +70,6 @@ export class Card extends Component {
               }
             </div>
             {movie.title}
-            
             <button
               className={`card-favorite-button
                 ${movie.favorite && user.loggedIn
@@ -85,16 +84,18 @@ export class Card extends Component {
               src={movie.poster} 
               alt=""
               className='poster-image'/>
-            <p className="card-overview">
-              <strong>Description</strong>
-              <br/>
-              {movie.overview}
+            <div className="lower-middle-expanded">
+              <p className="card-overview">
+                <strong>Description</strong>
+                <br />
+                {movie.overview}
+              </p>
               {expanded &&
                 <div className="rating-container">
-                  <div className="rating-bar" style={ ratingStyles } >{movie.rating} / 10</div>
+                  <div className="rating-bar" style={ratingStyles} >{movie.rating} / 10</div>
                 </div>
               }
-            </p>
+            </div>
             <p className="card-release-date">
               <strong>Release Date</strong>
               <br/>
