@@ -24,7 +24,11 @@ describe('Card', () => {
       }}
     mockUser = {id: 31, loggedIn: false}
     toggleFavorite = jest.fn()
-    wrapper = shallow(<Card movie={mockMovie} user={mockUser} toggleFavorite={toggleFavorite}/>);
+    wrapper = shallow(<Card 
+                        movie={mockMovie} 
+                        user={mockUser} 
+                        toggleFavorite={toggleFavorite}
+                      />);
   });
 
   it('Should render like snapshot', () => {
@@ -49,8 +53,9 @@ describe('Card', () => {
     mockMovie = [{title: 'the departed', favorite: false}, {title: 'fargo', favorite: false}]    
   })
 
-  xit('invokes toggleFavorite upon invocation of handleFavorite', async () => {
-    await wrapper.instance().handleFavorite(mockMovie)
-    expect(toggleFavorite).toHaveBeenCalled()    
+  it('invokes toggleFavorite upon invocation of handleFavorite', async () => {
+    mockUser = {id: 31, loggedIn: true}
+    wrapper.instance().handleFavorite(mockMovie)
+    expect(wrapper.props().toggleFavorite).toHaveBeenCalled()    
   })
 });
