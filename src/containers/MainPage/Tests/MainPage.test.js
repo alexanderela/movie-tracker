@@ -47,13 +47,4 @@ describe('MainPage', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should invoke clearFavorites upon invocation of handleSignOut', () => {
-  	handleSignOut(mockEvent)
-  	expect(clearFavorites).toHaveBeenCalled()
-  })
-
-  it('Should invoke signOut upon invocation of handleSignOut', () => {
-   	handleSignOut(mockEvent)
-  	expect(signOut).toHaveBeenCalled() 	
-  })
 });

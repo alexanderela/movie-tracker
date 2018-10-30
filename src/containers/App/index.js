@@ -20,7 +20,6 @@ export class App extends Component {
   async componentDidMount() {
     const movies = await DataCleaner.fetchMovies()
     this.props.setMovies(movies)
-
   }
 
   filterFavorites = () => {
@@ -36,7 +35,6 @@ export class App extends Component {
   }
 
   toggleError = () => {
-    console.log('toggleError hooked up')
     this.setState({ showError: !this.state.showError })
   }
 

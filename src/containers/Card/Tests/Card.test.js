@@ -32,7 +32,7 @@ describe('Card', () => {
     
   })
 
-  it('', () => {
+  it('invokes toggleFavorite upon invocation of handleFavorite', () => {
     
   })
 });

@@ -10,11 +10,18 @@ describe('App', () => {
       { title: 'Movie 3', favorite: false },
       { title: 'Movie 4', favorite: true }
     ];
+    const moviesNoFavorites = [
+      { title: 'Movie 1', favorite: false },
+      { title: 'Movie 2', favorite: false },
+      { title: 'Movie 3', favorite: false },
+      { title: 'Movie 4', favorite: false }
+    ];
     let wrapper;
     beforeEach(() => {
       wrapper = shallow(<App
         movies={movies}
-        user={{id: 1, loggedIn: true}}/>);
+        user={{id: 1, loggedIn: true}}
+        setMovies={() =>{}}/>);
     });
 
     it('Should render like snapshot', () => {
@@ -28,6 +35,22 @@ describe('App', () => {
       ];
       const favorites = wrapper.instance().filterFavorites();
       expect(favorites).toEqual(expected);
+    });
+
+    it('Should enable an error message if user is not logged in and no favorites exist', () => {
+      wrapper = shallow(<App
+        movies={moviesNoFavorites}
+        user={{id: 1, loggedIn: false}}
+        setMovies={() =>{}}/>);
+      const spy = jest.spyOn(wrapper.instance(), 'toggleError')
+      wrapper.instance().enableError()
+      expect(spy).toHaveBeenCalled()
+    });
+
+    it('Should toggle showError state', () => {
+      wrapper.setState({ showError: true })
+      wrapper.instance().toggleError()
+      expect(wrapper.state().showError).toBe(false)
     });
   });
 
