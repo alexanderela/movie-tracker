@@ -44,7 +44,6 @@ export class Login extends Component {
     e.preventDefault();
     const { create } = this.state;
     const newUserResponse = await this.newUserResponse(e);
-    console.log(newUserResponse)
   
     if (create && newUserResponse.status >= 400) {
       this.setState({error: 'Email has already been used'})

@@ -24,6 +24,7 @@ ShallowWrapper {
         },
       ]
     }
+    setMovies={[Function]}
     user={
       Object {
         "id": 1,
