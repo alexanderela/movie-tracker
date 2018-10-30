@@ -16,7 +16,7 @@ ShallowWrapper {
           "title": "Movie Title",
         },
       }
-    }
+    } 
     toggleFavorite={[MockFunction]}
     user={
       Object {
