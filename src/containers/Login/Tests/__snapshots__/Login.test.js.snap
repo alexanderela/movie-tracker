@@ -22,7 +22,9 @@ ShallowWrapper {
       "children": <form
         className="Login-form"
       >
-        <h1>
+        <h1
+          className="Login-header"
+        >
            Movie Tracker 
         </h1>
         <h3>
@@ -39,7 +41,7 @@ ShallowWrapper {
           name="password"
           onChange={[Function]}
           placeholder="Password"
-          type="text"
+          type="password"
           value=""
         />
         <button
@@ -55,6 +57,14 @@ ShallowWrapper {
         >
           Create User
         </button>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="home-link"
+          to="/"
+        >
+          Home
+        </NavLink>
       </form>,
       "className": "Login",
     },
@@ -65,7 +75,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
+          <h1
+            className="Login-header"
+          >
              Movie Tracker 
           </h1>,
           <h3>
@@ -83,7 +95,7 @@ ShallowWrapper {
             name="password"
             onChange={[Function]}
             placeholder="Password"
-            type="text"
+            type="password"
             value=""
           />,
           <button
@@ -100,6 +112,14 @@ ShallowWrapper {
             Create User
           </button>,
           null,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="home-link"
+            to="/"
+          >
+            Home
+          </NavLink>,
         ],
         "className": "Login-form",
       },
@@ -111,6 +131,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": " Movie Tracker ",
+            "className": "Login-header",
           },
           "ref": null,
           "rendered": " Movie Tracker ",
@@ -151,7 +172,7 @@ ShallowWrapper {
             "name": "password",
             "onChange": [Function],
             "placeholder": "Password",
-            "type": "text",
+            "type": "password",
             "value": "",
           },
           "ref": null,
@@ -186,6 +207,21 @@ ShallowWrapper {
           "type": "button",
         },
         null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "Home",
+            "className": "home-link",
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Home",
+          "type": [Function],
+        },
       ],
       "type": "form",
     },
@@ -200,7 +236,9 @@ ShallowWrapper {
         "children": <form
           className="Login-form"
         >
-          <h1>
+          <h1
+            className="Login-header"
+          >
              Movie Tracker 
           </h1>
           <h3>
@@ -217,7 +255,7 @@ ShallowWrapper {
             name="password"
             onChange={[Function]}
             placeholder="Password"
-            type="text"
+            type="password"
             value=""
           />
           <button
@@ -233,6 +271,14 @@ ShallowWrapper {
           >
             Create User
           </button>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="home-link"
+            to="/"
+          >
+            Home
+          </NavLink>
         </form>,
         "className": "Login",
       },
@@ -243,7 +289,9 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <h1>
+            <h1
+              className="Login-header"
+            >
                Movie Tracker 
             </h1>,
             <h3>
@@ -261,7 +309,7 @@ ShallowWrapper {
               name="password"
               onChange={[Function]}
               placeholder="Password"
-              type="text"
+              type="password"
               value=""
             />,
             <button
@@ -278,6 +326,14 @@ ShallowWrapper {
               Create User
             </button>,
             null,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="home-link"
+              to="/"
+            >
+              Home
+            </NavLink>,
           ],
           "className": "Login-form",
         },
@@ -289,6 +345,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": " Movie Tracker ",
+              "className": "Login-header",
             },
             "ref": null,
             "rendered": " Movie Tracker ",
@@ -329,7 +386,7 @@ ShallowWrapper {
               "name": "password",
               "onChange": [Function],
               "placeholder": "Password",
-              "type": "text",
+              "type": "password",
               "value": "",
             },
             "ref": null,
@@ -364,6 +421,21 @@ ShallowWrapper {
             "type": "button",
           },
           null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "Home",
+              "className": "home-link",
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
+          },
         ],
         "type": "form",
       },
