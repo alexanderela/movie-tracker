@@ -80,6 +80,7 @@
 	justify-content: space-between;
 	height: 4rem;
 	padding: .5rem 0;
+	text-shadow: 0 0 2rem rgba(0, 0, 0, .9);
 	margin: 0;
 	overflow: hidden;
 	width: calc(100% + 1px);
@@ -96,12 +97,32 @@
 
 /* --------------- EXPANDED CARD --------------- */
 
+.expanded-background {
+	display: none;
+}
+
 .expanded-card {
 	height: 80%;
 	margin-left: 10vw;
 	position: fixed;
 	width: 80%;
 	z-index: 3;
+}
+
+.expanded-card .card-inner-wrapper {
+	/* box-shadow: inset 0 0 5rem rgba(255, 255, 255, .3); */
+}
+
+.expanded-card .expanded-background {
+	background-color: rgba(0, 0, 0, .4);
+	/* background: radial-gradient(transparent 50%, rgba(0, 0, 0, .8)); */
+	display: initial;
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
 }
 
 .expanded-card .movie-title {
@@ -114,7 +135,7 @@
 }
 
 .expanded-card .card-inner-wrapper {
-	background-color: rgba(0, 0, 0, .7);
+	background-color: transparent;
 	height: 100%;
 }
 
@@ -178,6 +199,7 @@
 	}
 
 	.expanded-card .poster-image {
+		height: unset;
 		margin: 4rem 0;
 		width: 10rem;
 	}
@@ -208,4 +230,27 @@
 	.movie-title {
 		border-radius: 0;
 	}
+}
+
+
+
+
+
+.rating-container {
+  background-color: #fcfcfc;
+  border-radius: 2rem;
+  height: 2rem;
+  margin: 3rem auto;
+  padding: 2px;
+  width: 100%;
+}
+
+.rating-bar {
+  /* background-color: #51B04D; */
+	border-radius: 1rem;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 200%;
+	text-align: center;
+  height: 32px;
 }
