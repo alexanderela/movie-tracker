@@ -117,6 +117,8 @@ export const mapDispatchToProps = (dispatch) => ({
 
 Card.propTypes = {
   movie: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  toggleFavorite: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

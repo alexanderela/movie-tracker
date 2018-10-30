@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ErrorMessage.css'
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class ErrorMessage extends Component {
   constructor(props) {
@@ -31,6 +32,12 @@ class ErrorMessage extends Component {
       </div>
     );
   }
+}
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string,
+  closeError: PropTypes.func,
+  user: PropTypes.object
 }
 
 export default ErrorMessage;

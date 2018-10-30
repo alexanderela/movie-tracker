@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as userActions from '../../actions/userActions';
 import * as movieActions from '../../actions/movieActions';
 import redLogo from '../../images/film-red.svg';
+import PropTypes from 'prop-types';
 
 export const MainPage = ({ user, signOut, movies, clearFavorites, enableError }) => {
   const handleSignOut = (event) => {
@@ -54,5 +55,13 @@ const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(userActions.signOut()),
   clearFavorites: (movies) => dispatch(movieActions.clearFavorites(movies))
 });
+
+MainPage.propTypes = {
+  user: PropTypes.object.isRequired,
+  movies: PropTypes.object.isRequired,
+  signOut: PropTypes.func.isRequired,
+  clearFavorites: PropTypes.func.isRequired,
+  enableError: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
