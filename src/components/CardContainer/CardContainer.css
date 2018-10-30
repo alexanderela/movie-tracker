@@ -1,10 +1,12 @@
 .CardContainer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	column-gap: 1rem;
 	margin: 0 auto;
+	width: calc(100% - 2px);
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1000px) {
 	.CardContainer {
 		grid-template-columns: repeat(2, 1fr);
 		margin: 0 auto;
@@ -21,3 +23,4 @@
 .header-container-splitter {
 	height: 4.5rem;
 }
+

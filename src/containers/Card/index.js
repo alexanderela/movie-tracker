@@ -5,8 +5,17 @@ import { toggleFavorite } from '../../actions/movieActions';
 import { removeFavorite, addFavorite } from '../../utilities/API';
 import star from '../../images/star-clear.svg';
 import './Card.css';
+import filledStar from '../../images/star.svg';
+import * as API from '../../utilities/API';
 
 export class Card extends Component {
+	constructor() {
+		super();
+		this.state = {
+			expanded: false
+		}
+	}
+
 	handleFavorite = async (movie) => {
     const { user, toggleFavorite } = this.props;
 		const { id, favorite } = movie;
@@ -18,28 +27,80 @@ export class Card extends Component {
     } else {
       addFavorite(movie, user);
     }
-    toggleFavorite(id);
-	}
+      toggleFavorite(id);
+    }
+
+  handleExpand = (e) => {
+    if (!e.target.className.includes('card-favorite-button')) {
+      this.setState({
+        expanded: !this.state.expanded
+      })
+    }
+  }
+
+  returnRatingColor = num => {
+    if (num < 6) {
+      return '#BC2D2B'
+    } else if (num >= 6 && num < 7) {
+      return '#F5D14B'
+    } else {
+      return '#51B04D';
+    }
+  }
 
   render() {
     const { movie, user } = this.props;
+    const { expanded } = this.state;
+    const ratingStyles = {
+      width: `${this.props.movie.rating * 10}%`,
+      background: this.returnRatingColor(movie.rating)
+    };
 
     return(
-      <div className='Card' style={{backgroundImage: 'url(' + movie.backdrop + ')'}}>
+			<div
+				className={expanded ? 'Card' : 'Card card-expanded'}
+				style={{backgroundImage: 'url(' + movie.backdrop + ')'}}
+        onClick={this.handleExpand}>
+        <div className="expanded-background"></div>
         <div className="card-inner-wrapper">
           <h3 className="movie-title" >
-            <div className="movie-rating" >Rating {movie.rating}/10</div>
+            <div className="movie-rating" >
+              {!expanded &&
+                <div>Rating {movie.rating}</div>
+              }
+            </div>
             {movie.title}
+            
             <button
               className={`card-favorite-button
-                ${movie.favorite && user.loggedIn ? 'fav-btn-active' : 'fav-btn-inactive'}`}
+                ${movie.favorite && user.loggedIn
+                  ? 'fav-btn-active'
+                  : 'fav-btn-inactive'}`}
               onClick={() => this.handleFavorite(movie)}>
-              <img alt="" src={star} />
+              <img className="card-favorite-button-star" alt="" src={movie.favorite ? filledStar : star} />
             </button>
           </h3>
-         <p>{movie.overview}</p>
-          <p>Opens: {movie.releaseDate}</p>
-          <p>Viewer Rating: {movie.rating}</p>
+          <div className="expanded-lower-container">
+            <img 
+              src={movie.poster} 
+              alt=""
+              className='poster-image'/>
+            <p className="card-overview">
+              <strong>Description</strong>
+              <br/>
+              {movie.overview}
+              {expanded &&
+                <div className="rating-container">
+                  <div className="rating-bar" style={ ratingStyles } >{movie.rating} / 10</div>
+                </div>
+              }
+            </p>
+            <p className="card-release-date">
+              <strong>Release Date</strong>
+              <br/>
+              {movie.releaseDate}
+            </p>
+          </div>
         </div>
       </div>
     )

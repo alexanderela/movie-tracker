@@ -10,8 +10,8 @@
 	height: 20rem;
 	justify-content: space-between;
 	margin: 1rem auto;
-	padding: 0 1rem;
-	width: 93%;
+	padding: 0;
+	width: 100%;
 	transition-duration: .1s;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .card-inner-wrapper {
-	width: calc(100% + 2rem);
+	width: 100%;
 }
 
 .Card p {
@@ -39,27 +39,37 @@
 }
 
 .card-favorite-button {
-	background-color: rgba(0, 0, 0, .3);
-	/* border: 2px solid #fcfcfc; */
-	border-radius: 50%;
-	/* box-shadow: inset 0 0 6px rgba(0, 0, 0, .6); */
+	background-color: #222;
+	border: none;
+  bottom: 8px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, .4);
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
 	cursor: pointer;
-	height: 2.5rem;
-	margin-right: 1rem;
+  height: 70px;
 	outline: none;
-	width: 2.5rem;
+	position: relative;
+	right: 1px;
+	transition-duration: .2s;
+  width: 70px;
+}
+
+.card-favorite-button:hover {
+	background-color: #444;
 }
 
 .card-favorite-button img {
-	filter: invert(90%);
+	bottom: 15px;
+	height: 2rem;
+	left: 15px;
+	position: relative;
 }
 
 .fav-btn-active {
-	background-color: red;
+	background-color: #444;
 }
 
-.fav-btn-inactive {
-	
+.fav-btn-active:hover {
+	background-color: #222;
 }
 
 .movie-title {
@@ -70,6 +80,7 @@
 	justify-content: space-between;
 	height: 4rem;
 	padding: .5rem 0;
+	text-shadow: 0 0 2rem rgba(0, 0, 0, .9);
 	margin: 0;
 	overflow: hidden;
 	width: calc(100% + 1px);
@@ -80,25 +91,145 @@
 }
 
 .poster-image {
+	display: none;
 	width: 15rem;
 }
+
+/* --------------- EXPANDED CARD --------------- */
+
+.expanded-background {
+	display: none;
+}
+
+.expanded-card {
+	height: 80%;
+	margin-left: 10vw;
+	position: fixed;
+	width: 80%;
+	z-index: 3;
+}
+
+.expanded-card .card-inner-wrapper {
+}
+
+.expanded-card .expanded-background {
+	background-color: rgba(0, 0, 0, .4);
+	display: initial;
+	height: 100vh;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
+}
+
+.expanded-card .movie-title {
+	padding-top: 2rem;
+}
+
+.expanded-card .card-favorite-button {
+	background-color: transparent;
+	width: 10%;
+}
+
+.expanded-card .card-inner-wrapper {
+	background-color: transparent;
+	height: 100%;
+}
+
+.expanded-lower-container {
+	display: inline-flex;
+	justify-content: space-around;
+	height: 80%;
+}
+
+.expanded-card .poster-image {
+	box-shadow: 0 0 3rem #666;
+	border-radius: 5px;
+	display: inline;
+	height: 70%;
+	margin: 4rem 3rem;
+	width: auto;
+}
+
+.expanded-card p {
+	color: white;
+	display: inline;
+	padding-top: 4rem;
+}
+
+.rating-container {
+  background-color: #fcfcfc;
+  border-radius: 2rem;
+  height: 2rem;
+  margin: 3rem auto;
+  padding: 2px;
+  width: 100%;
+}
+
+.rating-bar {
+	border-radius: 1rem;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 200%;
+	text-align: center;
+  height: 32px;
+}
+
+.card-overview {
+	font-size: 2rem;
+	text-align: justify;
+	width: 45%;
+}
+
+.card-release-date {
+	font-size: 1.5rem;
+	text-align: end;
+}
+
+/* --------------- MEDIA QUERIES --------------- */
 
 @media screen and (max-width: 1600px) {
   .Card {
 		height: 17rem;
-		width: 25rem;
+	}
+
+	.card-favorite-button {
+		right: 0;
 	}
 
 	.movie-title {
 		font-size: 1.5rem;
 		width: 100%;
 	}
+
+	.expanded-card {
+		height: 70%;
+		margin-top: 2rem;
+	}
+
+	.expanded-card p {
+		font-size: 1.5rem;
+	}
+
+	.expanded-card .poster-image {
+		height: unset;
+		margin: 4rem 0;
+		width: 10rem;
+	}
 }
 
 @media screen and (max-width: 900px) {
 	.Card {
 		height: 13rem;
-		width: 20rem;
+	}
+
+	.card-favorite-button {
+		left: 1px;
+	}
+
+	.expanded-card p {
+		font-size: 15px;
 	}
 }
 

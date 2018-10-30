@@ -40,7 +40,6 @@
   border-radius: 2px;
   border: none;
   box-shadow: none;
-  cursor: pointer;
   display: block;
   font-size: 18px;
   margin: 1rem auto;
@@ -60,6 +59,7 @@
 
 .Login button {
   box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+  cursor: pointer;
   font-weight: 600;
   width: 416px;
 }
