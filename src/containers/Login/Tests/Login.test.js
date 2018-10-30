@@ -1,18 +1,26 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Login }  from '../';
+import * as API from '../../../utilities/API';
+jest.mock('../../../utilities/API');
 
 describe('Login', () => {
   let wrapper;
   let mockEvent;
+  let mockUser;
+  let mockCredentials;
+  let mockFunc;
 
   beforeEach(() => {
-  	const mockFunc = jest.fn()
-    wrapper = shallow(<Login loginUser={mockFunc} setFavorites={mockFunc}/>);
+  	mockFunc = jest.fn()
+    mockUser = {id: 31, loggedIn: false}
+    mockCredentials = {email: '12345@gmail.com', password: 12345}
+    wrapper = shallow(<Login loginUser={jest.fn()} setFavorites={mockFunc}/>);
     mockEvent = { 
     	preventDefault: jest.fn(), 
     	target: {name: 'name', value: 'Alex'} 
     }
+    wrapper.setState({create: true})
   });
 
   it('Should render like snapshot', () => {
@@ -28,41 +36,51 @@ describe('Login', () => {
   })
 
   describe('submitLogin', () => {
-	  xit('Invokes loginUser if loginAttempt is successful', () => {
-	  	
+	  it('Invokes loginUser if loginAttempt is successful', async () => {
+      await wrapper.instance().submitLogin(mockEvent)
+	  	expect(wrapper.instance().props.loginUser).toHaveBeenCalled()
 	  });
 
-	  xit('Invokes setFavorites if loginAttempt is successful', () => {
-	  	
+	  it('Invokes setFavorites if loginAttempt is successful', async () => {
+      const expected = []
+      await wrapper.instance().submitLogin(mockEvent)	  	
+      expect(wrapper.instance().props.setFavorites).toHaveBeenCalledWith(expected)
 	  });
 
-	  it('Sets error state if loginAttempt fails', () => {
-	  	window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-	  		status: 400
-	  	}))
+	  it('Sets error state if loginAttempt fails', async () => {
 	  	const response = 'Email and Password did not match'
-	  	wrapper.instance().submitLogin(mockEvent)
+	  	await wrapper.instance().submitLogin(mockEvent)
 	  	expect(wrapper.state().error).toEqual(response)
 	  });
   })
 
   describe('toggleCreate', () => {
-	  xit('Sets error state if create state is true and fetch response fails', () => {
-	  	
+	  it('Sets create and error states if create state is false and fetch response succeeds', async () => {
+      const expected = ''
+      await wrapper.instance().toggleCreate(mockEvent)
+      expect(wrapper.state().create).toBe(false)
+      expect(wrapper.state().error).toBe(expected)
 	  });
 
-	  xit('Clears inputs if create state is true and fetch response fails', () => {
-	  	
-	  });
+    it('Sets error state if create state is true and fetch response fails', async () => {
+      const expected = 'Email has already been used'
+      await wrapper.instance().toggleCreate(mockEvent)
+      expect(wrapper.state().error).toBe(expected)     
+    });
 
-	  xit('Sets create and error states if create state is false and fetch response succeeds', () => {
-	  	
-	  });
+    it('Clears inputs if create state is true and fetch response fails', async () => {
+      await wrapper.instance().toggleCreate(mockEvent)
+      expect(wrapper.state().email).toEqual('')
+      expect(wrapper.state().password).toEqual('')
+      expect(wrapper.state().name).toEqual('')        
+    });
+
   })
 
   describe('newUserResponse', () => {
-	  xit('Invokes API.createUser upon invocation of newUserResponse', () => {
-	  	
+	  it('Invokes API.createUser upon invocation of newUserResponse', async () => {
+      await wrapper.instance().newUserResponse(mockEvent)	  	
+      expect(API.createUser).toHaveBeenCalled()
 	  });
   })
 
