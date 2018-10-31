@@ -6,7 +6,6 @@ import { removeFavorite, addFavorite } from '../../utilities/API';
 import star from '../../images/star-clear.svg';
 import './Card.css';
 import filledStar from '../../images/star.svg';
-import * as API from '../../utilities/API';
 
 export class Card extends Component {
 	constructor() {
@@ -81,8 +80,8 @@ export class Card extends Component {
             </button>
           </h3>
           <div className="expanded-lower-container">
-            <img 
-              src={movie.poster} 
+            <img
+              src={movie.poster}
               alt=""
               className='poster-image'/>
             <div className="lower-middle-expanded">
