@@ -1,0 +1,17 @@
+{
+  "main.css": "/movie-tracker/static/css/main.5ef51d02.chunk.css",
+  "main.js": "/movie-tracker/static/js/main.634e7c0e.chunk.js",
+  "main.js.map": "/movie-tracker/static/js/main.634e7c0e.chunk.js.map",
+  "static/js/1.24048e9b.chunk.js": "/movie-tracker/static/js/1.24048e9b.chunk.js",
+  "static/js/1.24048e9b.chunk.js.map": "/movie-tracker/static/js/1.24048e9b.chunk.js.map",
+  "runtime~main.js": "/movie-tracker/static/js/runtime~main.f5a723b9.js",
+  "runtime~main.js.map": "/movie-tracker/static/js/runtime~main.f5a723b9.js.map",
+  "static/media/ErrorMessage.css": "/movie-tracker/static/media/movies.05a753d9.jpg",
+  "static/media/star.svg": "/movie-tracker/static/media/star.c0210b84.svg",
+  "static/media/film-red.svg": "/movie-tracker/static/media/film-red.f8858d24.svg",
+  "static/media/star-clear.svg": "/movie-tracker/static/media/star-clear.25bcd45f.svg",
+  "static/css/main.5ef51d02.chunk.css.map": "/movie-tracker/static/css/main.5ef51d02.chunk.css.map",
+  "index.html": "/movie-tracker/index.html",
+  "precache-manifest.4bf40e9895159eb5af61d7beb5a9a86c.js": "/movie-tracker/precache-manifest.4bf40e9895159eb5af61d7beb5a9a86c.js",
+  "service-worker.js": "/movie-tracker/service-worker.js"
+}
