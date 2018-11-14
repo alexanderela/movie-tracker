@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexanderela.github.io/movie-tracker/",
+  "homepage": "https://alexanderela.github.io/movie-tracker",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "cors": "^2.8.4",
