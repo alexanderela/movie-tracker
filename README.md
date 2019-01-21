@@ -1,6 +1,5 @@
 # Movie Tracker:
-
-## Movie Tracker is an application designed to allow users to view information about movies currently playing. It utilizes the Movie Database API to collect movie data, and is built primarily using React.js and Redux.
+Movie Tracker is an application designed to allow users to view information about movies currently playing. It utilizes the Movie Database API to collect movie data, and is built primarily using React.js and Redux.
 
 ## Deployed App
 []()
@@ -43,11 +42,13 @@ git remote add upstream https://github.com/alexanderela/movie-tracker.git
 git fetch upstream master
 ```
 
+
 #### Install and Start Server
 
 * `npm install` all dependencies.
 
 * `npm start` the development server.
+
 
 ### Contributing
 This guide assumes that the git remote name of the main repo is `upstream` and that **your** fork is named `origin`.
@@ -86,6 +87,7 @@ git push origin branch-name-here
 * Fill in the requested information re: what you worked on
 * Keep your PR small, with a single focus
 
+
 ## Technologies Used
 - React.js
 - Redux
@@ -107,6 +109,5 @@ Project spec can be found [here](https://github.com/turingschool-examples/movie-
 * Drake Bott - [Github.com/bottd](https://github.com/bottd)
 * Alex Bruce - [Github.com/Alexbruce1](https://github.com/Alexbruce1)
 * Alexander Ela - [Github.com/alexanderela](https://github.com/alexanderela)
-
 
 ## This README relied upon Open Food Source's extensive and excellent [Set Up](https://github.com/openfoodfoundation/openfoodnetwork/blob/master/GETTING_STARTED.md) and [Contibution](https://github.com/openfoodfoundation/openfoodnetwork/blob/master/CONTRIBUTING.md) docs.
