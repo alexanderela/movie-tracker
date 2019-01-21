@@ -15,8 +15,6 @@ This is a general guide to setting up a Recharge API development environment on 
 * Jest and Enzyme for testing
 * See package.json for a list of required modules
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 
 ### Developers:
 #### Get the app on your local machine
@@ -95,8 +93,15 @@ git push origin branch-name-here
 - CSS3 
 - Jest and Enzyme for testing
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Project Requirements
 Project spec can be found [here](https://github.com/turingschool-examples/movie-tracker).
+
+## This is a group project designed and coded by:
+* Drake Bott - [Github.com/bottd](https://github.com/bottd)
+* Alex Bruce - [Github.com/Alexbruce1](https://github.com/Alexbruce1)
+* Alexander Ela - [Github.com/alexanderela](https://github.com/alexanderela)
 
 ## Images:
 ### Home Page
@@ -104,10 +109,5 @@ Project spec can be found [here](https://github.com/turingschool-examples/movie-
 
 ### Wireframe
 ![Wireframe image](./src/assets/movie_tracker_wireframe.jpg "Wireframe")
-
-## This is a group project designed and coded by:
-* Drake Bott - [Github.com/bottd](https://github.com/bottd)
-* Alex Bruce - [Github.com/Alexbruce1](https://github.com/Alexbruce1)
-* Alexander Ela - [Github.com/alexanderela](https://github.com/alexanderela)
 
 ## This README relied upon Open Food Source's extensive and excellent [Set Up](https://github.com/openfoodfoundation/openfoodnetwork/blob/master/GETTING_STARTED.md) and [Contibution](https://github.com/openfoodfoundation/openfoodnetwork/blob/master/CONTRIBUTING.md) docs.
