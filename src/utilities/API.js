@@ -5,7 +5,7 @@ export const fetchData = async (url) => {
 }
 
 export const loginUser = async (user) => {
-  const response = await fetch('http://localhost:3000/api/users', {
+  const response = await fetch('http://movie-tracker-backend-ae.herokuapp.com/api/users', {
     method: 'POST',
     body: JSON.stringify(user),
     headers:{
@@ -17,7 +17,7 @@ export const loginUser = async (user) => {
 }
 
 export const createUser = async (user) => {
-  return fetch('http://localhost:3000/api/users/new', {
+  return fetch('http://movie-tracker-backend-ae.herokuapp.com/api/users/new', {
     method: 'POST',
     body: JSON.stringify(user),
     headers:{
@@ -27,7 +27,7 @@ export const createUser = async (user) => {
 }
 
 export const addFavorite = async (movie, user) => {
-  const response = await fetch('http://localhost:3000/api/users/favorites/new', {
+  const response = await fetch('http://movie-tracker-backend-ae.herokuapp.com/api/users/favorites/new', {
     method: 'POST',
     body: JSON.stringify({
       movie_id: movie.id,
@@ -46,7 +46,7 @@ export const addFavorite = async (movie, user) => {
 }
 
 export const removeFavorite = async (movie, user) => {
-  return fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie.id}`, {
+  return fetch(`http://movie-tracker-backend-ae.herokuapp.com/api/users/${user.id}/favorites/${movie.id}`, {
     method: 'DELETE',
     body: JSON.stringify({
       movie_id: movie.id,
@@ -59,7 +59,7 @@ export const removeFavorite = async (movie, user) => {
 }
 
 export const getFavorites = async (user) => {
-  const response = await fetch(`http://localhost:3000/api/users/${user.id}/favorites`);
+  const response = await fetch(`http://movie-tracker-backend-ae.herokuapp.com/api/users/${user.id}/favorites`);
   const favorites = await response.json();
   return favorites.data;
 }
