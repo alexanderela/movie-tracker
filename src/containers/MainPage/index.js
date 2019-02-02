@@ -24,7 +24,7 @@ export const MainPage = ({ user, signOut, movies, clearFavorites, enableError })
           </NavLink>
         </button>
         <div className="header-title">
-          <NavLink to='/'>
+          <NavLink to='/' className="header-link">
             <img className="main-logo" alt="" src={redLogo} />
             <h3 className="header-text">MovieTracker</h3>
           </NavLink>

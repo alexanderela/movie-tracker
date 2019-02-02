@@ -24,3 +24,8 @@
 	height: 4.5rem;
 }
 
+@media screen and (max-width: 445px) {
+	.CardContainer {
+		margin: 1rem 0 0;
+	}
+}
