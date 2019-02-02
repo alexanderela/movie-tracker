@@ -27,8 +27,9 @@ describe('API', () => {
     beforeEach(() => {
       mockUser = {email: 'tim@aol.com', password: 'password'};
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve(
-          {data: {email: 'tim@aol.com', password: 'password'}})
+        json: () => Promise.resolve({
+          email: 'tim@aol.com', password: 'password'
+        })
       }))
     });
 
