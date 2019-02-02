@@ -84,7 +84,7 @@ describe('API', () => {
     });
 
     it('Should make a post request with the correct arguments', () => {
-      const url = 'http://localhost:3000/api/users/favorites/new'
+      const url = 'https://movie-tracker-backend-ae.herokuapp.com/api/users/favorites/new'
       const mockMovie = {
         id: 1,
         title: 'Movie',
