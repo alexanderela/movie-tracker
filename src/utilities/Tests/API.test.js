@@ -34,7 +34,7 @@ describe('API', () => {
 
     it('should call fetch on path /api/users', () => {
       API.loginUser(mockUser);
-      expect(window.fetch.mock.calls[0][0]).toBe('http://localhost:3000/api/users');
+      expect(window.fetch.mock.calls[0][0]).toBe('https://movie-tracker-backend-ae.herokuapp.com/api/users');
     });
 
     it('should pass an options object with the stringified user data to fetch', () => {
