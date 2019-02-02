@@ -31,6 +31,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     const { loginUser, setFavorites } = this.props
     const loginAttempt = await API.loginUser({email, password});
+    console.log(loginAttempt)
 
     if (loginAttempt) {
       loginUser(loginAttempt);
