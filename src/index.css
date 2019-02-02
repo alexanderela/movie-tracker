@@ -50,9 +50,6 @@ code {
   color: #c2c2c2;  
 }
 
-.all-favorites {
-}
-
 .header-title {
   display: inline-block;
   height: 3rem;
@@ -77,4 +74,32 @@ code {
 }
 
 .sign-out {
+}
+
+@media screen and (max-width: 445px) {
+  .main-header {
+    height: 5.5rem;
+  }
+
+  .header-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .main-logo {
+    height: 2rem;
+  }
+
+  .header-text {
+    font-size: 1.9rem;
+  }
+
+  .all-favorites {
+    width: 3.75rem;
+  }
+
+  .sign-in {
+    width: 3.75rem;
+  }
 }
