@@ -148,7 +148,7 @@ describe('API', () => {
 
     it('Should call fetch with correct arguments', () => {
       const mockUser = { id: 1 };
-      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites`;
+      const url = `https://movie-tracker-backend-ae.herokuapp.com/api/users/${mockUser.id}/favorites`;
       API.getFavorites(mockUser);
       expect(window.fetch).toHaveBeenCalledWith(url);
     });
