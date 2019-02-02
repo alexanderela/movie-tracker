@@ -61,5 +61,5 @@ export const removeFavorite = async (movie, user) => {
 export const getFavorites = async (user) => {
   const response = await fetch(`https://movie-tracker-backend-ae.herokuapp.com/api/users/${user.id}/favorites`);
   const favorites = await response.json();
-  return favorites.data;
+  return favorites;
 }
