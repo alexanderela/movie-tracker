@@ -31,12 +31,10 @@ export class Login extends Component {
     const { email, password } = this.state;
     const { loginUser, setFavorites } = this.props
     const loginAttempt = await API.loginUser({email, password});
-    console.log('loginAttempt: ' + loginAttempt)
 
     if (loginAttempt) {
       loginUser(loginAttempt);
       const favorites = await API.getFavorites(loginAttempt);
-      console.log('favorites: ' + favorites)
       setFavorites(favorites);
     } else {
       this.setState({error: 'Email and Password did not match'});
