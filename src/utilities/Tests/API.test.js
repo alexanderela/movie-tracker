@@ -27,14 +27,15 @@ describe('API', () => {
     beforeEach(() => {
       mockUser = {email: 'tim@aol.com', password: 'password'};
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve(
-          {data: {email: 'tim@aol.com', password: 'password'}})
+        json: () => Promise.resolve({
+          email: 'tim@aol.com', password: 'password'
+        })
       }))
     });
 
     it('should call fetch on path /api/users', () => {
       API.loginUser(mockUser);
-      expect(window.fetch.mock.calls[0][0]).toBe('http://localhost:3000/api/users');
+      expect(window.fetch.mock.calls[0][0]).toBe('https://movie-tracker-backend-ae.herokuapp.com/api/users');
     });
 
     it('should pass an options object with the stringified user data to fetch', () => {
@@ -62,7 +63,7 @@ describe('API', () => {
     });
 
     it('Should call fetch with the correct arguments', () => {
-      const url = 'http://localhost:3000/api/users/new';
+      const url = 'https://movie-tracker-backend-ae.herokuapp.com/api/users/new';
       const mockUser = {name: 'Tim', email: 'tim@aol.com', password: 'password'}
       const mockOptions = {
         method: 'POST',
@@ -84,7 +85,7 @@ describe('API', () => {
     });
 
     it('Should make a post request with the correct arguments', () => {
-      const url = 'http://localhost:3000/api/users/favorites/new'
+      const url = 'https://movie-tracker-backend-ae.herokuapp.com/api/users/favorites/new'
       const mockMovie = {
         id: 1,
         title: 'Movie',
@@ -122,7 +123,7 @@ describe('API', () => {
     it('Should make a delete request with the correct arguments', () => {
       const mockUser = { id: 1 }
       const mockMovie = { id: 1 }
-      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites/${mockMovie.id}`;
+      const url = `https://movie-tracker-backend-ae.herokuapp.com/api/users/${mockUser.id}/favorites/${mockMovie.id}`;
       const mockOptions = {
         method: 'DELETE',
         body: JSON.stringify({
@@ -140,15 +141,15 @@ describe('API', () => {
   describe('getFavorites', () => {
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve({
-          data: ['Favorites', 'Array']
-        })
+        json: () => Promise.resolve(
+          ['Favorites', 'Array']
+        )
       }));
     });
 
     it('Should call fetch with correct arguments', () => {
       const mockUser = { id: 1 };
-      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites`;
+      const url = `https://movie-tracker-backend-ae.herokuapp.com/api/users/${mockUser.id}/favorites`;
       API.getFavorites(mockUser);
       expect(window.fetch).toHaveBeenCalledWith(url);
     });

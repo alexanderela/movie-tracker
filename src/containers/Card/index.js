@@ -6,7 +6,6 @@ import { removeFavorite, addFavorite } from '../../utilities/API';
 import star from '../../images/star-clear.svg';
 import './Card.css';
 import filledStar from '../../images/star.svg';
-import * as API from '../../utilities/API';
 
 export class Card extends Component {
 	constructor() {
