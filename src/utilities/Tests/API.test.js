@@ -156,7 +156,7 @@ describe('API', () => {
 
     it('Should resolve the fetch and return the data key from response', async () => {
       const mockUser = { id: 1 };
-      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites`;
+      const url = `https://movie-tracker-backend-ae.herokuapp.com/api/users/${mockUser.id}/favorites`;
       const expected = ['Favorites', 'Array'];
       const result =  await API.getFavorites(url);
       expect(result).toEqual(expected);
