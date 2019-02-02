@@ -2,7 +2,7 @@
 Movie Tracker is an application designed to allow users to view information about movies currently playing. It utilizes the Movie Database API to collect movie data, and is built primarily using React.js and Redux.
 
 ## Deployed App
-[]()
+[https://movie-tracker.netlify.com](https://movie-tracker.netlify.com/)
 
 ## Getting Started
 This is a general guide to setting up a Recharge API development environment on your local machine.
