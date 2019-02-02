@@ -62,7 +62,7 @@ describe('API', () => {
     });
 
     it('Should call fetch with the correct arguments', () => {
-      const url = 'http://localhost:3000/api/users/new';
+      const url = 'https://movie-tracker-backend-ae.herokuapp.com/api/users/new';
       const mockUser = {name: 'Tim', email: 'tim@aol.com', password: 'password'}
       const mockOptions = {
         method: 'POST',
