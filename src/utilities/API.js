@@ -5,15 +5,19 @@ export const fetchData = async (url) => {
 }
 
 export const loginUser = async (user) => {
-  const response = await fetch('https://movie-tracker-backend-ae.herokuapp.com/api/users', {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers:{
-      'Content-Type': 'application/json'
-    }
-  });
-  const userData = await response.json();
-  return userData.data;
+  try {
+    const response = await fetch('https://movie-tracker-backend-ae.herokuapp.com/api/users', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    });
+    const userData = await response.json();
+    return userData.data;
+  } catch(error) {
+    throw new Error(error.message)
+  }
 }
 
 export const createUser = async (user) => {
