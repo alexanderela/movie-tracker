@@ -140,9 +140,9 @@ describe('API', () => {
   describe('getFavorites', () => {
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve({
-          data: ['Favorites', 'Array']
-        })
+        json: () => Promise.resolve(
+          ['Favorites', 'Array']
+        )
       }));
     });
 
