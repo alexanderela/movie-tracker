@@ -5,7 +5,6 @@ export const fetchData = async (url) => {
 }
 
 export const loginUser = async (user) => {
-  try {
     const response = await fetch('https://movie-tracker-backend-ae.herokuapp.com/api/users', {
       method: 'POST',
       body: JSON.stringify(user),
@@ -14,10 +13,7 @@ export const loginUser = async (user) => {
       }
     });
     const userData = await response.json();
-    return userData.data;
-  } catch(error) {
-    throw new Error(error.message)
-  }
+    return userData;
 }
 
 export const createUser = async (user) => {
