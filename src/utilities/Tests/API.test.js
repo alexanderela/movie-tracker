@@ -122,7 +122,7 @@ describe('API', () => {
     it('Should make a delete request with the correct arguments', () => {
       const mockUser = { id: 1 }
       const mockMovie = { id: 1 }
-      const url = `http://localhost:3000/api/users/${mockUser.id}/favorites/${mockMovie.id}`;
+      const url = `https://movie-tracker-backend-ae.herokuapp.com/api/users/${mockUser.id}/favorites/${mockMovie.id}`;
       const mockOptions = {
         method: 'DELETE',
         body: JSON.stringify({
